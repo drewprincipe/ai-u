@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getAllCourses, searchCourses, departments } from "@/services/mockCourseService";
+import { getAllCourses, searchCourses, departments, gradeLevels } from "@/services/mockCourseService";
 import { CourseCard } from "@/components/CourseCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,6 +21,7 @@ import { Link, useNavigate } from "react-router-dom";
 export default function CoursesLibrary() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("All Departments");
+  const [selectedGradeLevel, setSelectedGradeLevel] = useState("All Grade Levels");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const navigate = useNavigate();
 
@@ -34,8 +35,8 @@ export default function CoursesLibrary() {
   }, [searchQuery]);
 
   const { data: courses, isLoading, error } = useQuery({
-    queryKey: ['courses', debouncedQuery, selectedDepartment],
-    queryFn: () => searchCourses(debouncedQuery, selectedDepartment),
+    queryKey: ['courses', debouncedQuery, selectedDepartment, selectedGradeLevel],
+    queryFn: () => searchCourses(debouncedQuery, selectedDepartment, selectedGradeLevel),
   });
 
   const { data: allCourses } = useQuery({
@@ -144,7 +145,7 @@ export default function CoursesLibrary() {
           </div>
 
           {/* Search and Filters */}
-          <div className="flex flex-col md:flex-row gap-4 mb-6">
+          <div className="flex flex-col lg:flex-row gap-4 mb-6">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
               <Input
@@ -154,24 +155,39 @@ export default function CoursesLibrary() {
                 className="pl-10"
               />
             </div>
-            <Select value={selectedDepartment} onValueChange={setSelectedDepartment}>
-              <SelectTrigger className="w-full md:w-64">
-                <Filter className="h-4 w-4 mr-2" />
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {departments.map((dept) => (
-                  <SelectItem key={dept} value={dept}>
-                    {dept}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className="flex flex-col md:flex-row gap-4">
+              <Select value={selectedDepartment} onValueChange={setSelectedDepartment}>
+                <SelectTrigger className="w-full md:w-64">
+                  <Filter className="h-4 w-4 mr-2" />
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {departments.map((dept) => (
+                    <SelectItem key={dept} value={dept}>
+                      {dept}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Select value={selectedGradeLevel} onValueChange={setSelectedGradeLevel}>
+                <SelectTrigger className="w-full md:w-64">
+                  <GraduationCap className="h-4 w-4 mr-2" />
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {gradeLevels.map((grade) => (
+                    <SelectItem key={grade} value={grade}>
+                      {grade}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
           {/* Active Filters */}
-          {(searchQuery || selectedDepartment !== "All Departments") && (
-            <div className="flex items-center gap-2 mb-4">
+          {(searchQuery || selectedDepartment !== "All Departments" || selectedGradeLevel !== "All Grade Levels") && (
+            <div className="flex items-center gap-2 mb-4 flex-wrap">
               <span className="text-sm text-muted-foreground">Active filters:</span>
               {searchQuery && (
                 <Badge variant="secondary" className="gap-1">
@@ -189,6 +205,17 @@ export default function CoursesLibrary() {
                   {selectedDepartment}
                   <button
                     onClick={() => setSelectedDepartment("All Departments")}
+                    className="ml-1 hover:text-destructive"
+                  >
+                    ×
+                  </button>
+                </Badge>
+              )}
+              {selectedGradeLevel !== "All Grade Levels" && (
+                <Badge variant="secondary" className="gap-1">
+                  {selectedGradeLevel}
+                  <button
+                    onClick={() => setSelectedGradeLevel("All Grade Levels")}
                     className="ml-1 hover:text-destructive"
                   >
                     ×
@@ -222,6 +249,7 @@ export default function CoursesLibrary() {
               onClick={() => {
                 setSearchQuery("");
                 setSelectedDepartment("All Departments");
+                setSelectedGradeLevel("All Grade Levels");
               }}
               variant="outline"
             >
@@ -237,7 +265,7 @@ export default function CoursesLibrary() {
                 <h2 className="text-xl font-semibold">
                   {courses.length} course{courses.length !== 1 ? 's' : ''} found
                 </h2>
-                {(searchQuery || selectedDepartment !== "All Departments") && (
+                {(searchQuery || selectedDepartment !== "All Departments" || selectedGradeLevel !== "All Grade Levels") && (
                   <p className="text-muted-foreground">
                     Showing results for your search criteria
                   </p>
@@ -257,6 +285,7 @@ export default function CoursesLibrary() {
                   students={course.students}
                   rating={course.rating}
                   level={course.level}
+                  gradeLevel={course.gradeLevel}
                   price={course.price}
                 />
               ))}

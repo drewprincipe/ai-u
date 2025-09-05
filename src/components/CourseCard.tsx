@@ -12,6 +12,7 @@ interface CourseCardProps {
   students: number;
   rating: number;
   level: "Beginner" | "Intermediate" | "Advanced";
+  gradeLevel: 'K-5' | '6-8' | 'High School' | 'College' | 'Graduate' | 'Professional';
   price?: string;
   courseId?: string;
 }
@@ -24,6 +25,7 @@ export function CourseCard({
   students,
   rating,
   level,
+  gradeLevel,
   price,
   courseId
 }: CourseCardProps) {
@@ -35,12 +37,15 @@ export function CourseCard({
           alt={title}
           className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
         />
-        <div className="absolute top-4 left-4">
+        <div className="absolute top-4 left-4 flex flex-col gap-2">
           <Badge 
             variant={level === "Beginner" ? "secondary" : level === "Intermediate" ? "default" : "destructive"}
             className="shadow-md"
           >
             {level}
+          </Badge>
+          <Badge variant="outline" className="bg-background/80 shadow-md">
+            {gradeLevel}
           </Badge>
         </div>
         {price && (

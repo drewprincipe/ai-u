@@ -6,6 +6,7 @@ export interface Course {
   instructor: string;
   duration: string;
   level: 'Beginner' | 'Intermediate' | 'Advanced';
+  gradeLevel: 'K-5' | '6-8' | 'High School' | 'College' | 'Graduate' | 'Professional';
   rating: number;
   students: number;
   price: string;
@@ -74,6 +75,7 @@ export const mockCourse: Course = {
   instructor: "Dr. Sarah Chen",
   duration: "12 weeks",
   level: "Beginner",
+  gradeLevel: "College",
   rating: 4.8,
   students: 15420,
   price: "Free",
@@ -361,6 +363,7 @@ export const mockCourses: Course[] = [
     instructor: "Mark Johnson",
     duration: "8 weeks",
     level: "Beginner",
+    gradeLevel: "High School",
     rating: 4.7,
     students: 28340,
     price: "Free",
@@ -379,6 +382,7 @@ export const mockCourses: Course[] = [
     instructor: "Lisa Rodriguez",
     duration: "16 weeks",
     level: "Intermediate",
+    gradeLevel: "College",
     rating: 4.9,
     students: 12580,
     price: "$299",
@@ -397,6 +401,7 @@ export const mockCourses: Course[] = [
     instructor: "Dr. Alex Kumar",
     duration: "14 weeks",
     level: "Advanced",
+    gradeLevel: "Graduate",
     rating: 4.8,
     students: 8920,
     price: "$199",
@@ -415,6 +420,7 @@ export const mockCourses: Course[] = [
     instructor: "Jennifer Walsh",
     duration: "10 weeks",
     level: "Intermediate",
+    gradeLevel: "Professional",
     rating: 4.6,
     students: 15670,
     price: "$149",
@@ -433,6 +439,7 @@ export const mockCourses: Course[] = [
     instructor: "Robert Kim",
     duration: "12 weeks",
     level: "Beginner",
+    gradeLevel: "College",
     rating: 4.7,
     students: 9850,
     price: "$99",
@@ -451,6 +458,7 @@ export const mockCourses: Course[] = [
     instructor: "David Park",
     duration: "10 weeks",
     level: "Intermediate",
+    gradeLevel: "College",
     rating: 4.8,
     students: 11240,
     price: "$179",
@@ -469,6 +477,7 @@ export const mockCourses: Course[] = [
     instructor: "Emma Thompson",
     duration: "8 weeks",
     level: "Beginner",
+    gradeLevel: "Professional",
     rating: 4.5,
     students: 18990,
     price: "$89",
@@ -487,6 +496,7 @@ export const mockCourses: Course[] = [
     instructor: "Michael Chang",
     duration: "12 weeks",
     level: "Intermediate",
+    gradeLevel: "Professional",
     rating: 4.7,
     students: 13450,
     price: "$199",
@@ -495,6 +505,197 @@ export const mockCourses: Course[] = [
     totalLessons: 26,
     totalAssessments: 10,
     totalAssignments: 7,
+    modules: []
+  },
+  // Traditional Academic Courses
+  {
+    id: "physics-101",
+    title: "Physics 101: Mechanics and Motion",
+    description: "Introduction to classical physics covering Newton's laws, kinematics, dynamics, energy, and momentum. Perfect for college-bound students.",
+    imageUrl: "/src/assets/hero-education.jpg",
+    instructor: "Prof. Richard Feynman",
+    duration: "16 weeks",
+    level: "Beginner",
+    gradeLevel: "College",
+    rating: 4.9,
+    students: 24580,
+    price: "Free",
+    department: "Physics",
+    tags: ["Physics", "Mechanics", "Newton's Laws", "Energy", "Laboratory"],
+    totalLessons: 32,
+    totalAssessments: 12,
+    totalAssignments: 8,
+    modules: []
+  },
+  {
+    id: "calculus-1",
+    title: "Calculus I: Limits and Derivatives",
+    description: "Fundamental concepts of differential calculus including limits, continuity, derivatives, and applications to real-world problems.",
+    imageUrl: "/src/assets/course-data-science.jpg",
+    instructor: "Dr. Marie Curie",
+    duration: "14 weeks",
+    level: "Intermediate",
+    gradeLevel: "College",
+    rating: 4.7,
+    students: 31240,
+    price: "Free",
+    department: "Mathematics",
+    tags: ["Calculus", "Limits", "Derivatives", "Functions", "Applications"],
+    totalLessons: 28,
+    totalAssessments: 10,
+    totalAssignments: 6,
+    modules: []
+  },
+  {
+    id: "english-literature",
+    title: "English Literature: Classical to Modern",
+    description: "Explore masterworks of English literature from Shakespeare to contemporary authors. Develop critical thinking and writing skills.",
+    imageUrl: "/src/assets/course-python.jpg",
+    instructor: "Prof. Jane Austen",
+    duration: "12 weeks",
+    level: "Intermediate",
+    gradeLevel: "High School",
+    rating: 4.6,
+    students: 18750,
+    price: "Free",
+    department: "English",
+    tags: ["Literature", "Shakespeare", "Poetry", "Critical Analysis", "Writing"],
+    totalLessons: 24,
+    totalAssessments: 8,
+    totalAssignments: 12,
+    modules: []
+  },
+  {
+    id: "chemistry-basics",
+    title: "General Chemistry: Atoms and Molecules",
+    description: "Introduction to chemical principles, atomic structure, periodic table, chemical bonding, and basic reactions.",
+    imageUrl: "/src/assets/hero-education.jpg",
+    instructor: "Dr. Dmitri Mendeleev",
+    duration: "16 weeks",
+    level: "Beginner",
+    gradeLevel: "High School",
+    rating: 4.8,
+    students: 22140,
+    price: "Free",
+    department: "Chemistry",
+    tags: ["Chemistry", "Atoms", "Periodic Table", "Chemical Bonds", "Reactions"],
+    totalLessons: 32,
+    totalAssessments: 12,
+    totalAssignments: 10,
+    modules: []
+  },
+  {
+    id: "world-history",
+    title: "World History: Ancient to Modern",
+    description: "Comprehensive survey of world civilizations from ancient times to the present day, focusing on cultural, political, and social developments.",
+    imageUrl: "/src/assets/course-data-science.jpg",
+    instructor: "Prof. Howard Zinn",
+    duration: "18 weeks",
+    level: "Beginner",
+    gradeLevel: "High School",
+    rating: 4.5,
+    students: 27890,
+    price: "Free",
+    department: "History",
+    tags: ["History", "Civilizations", "Culture", "Politics", "Social Studies"],
+    totalLessons: 36,
+    totalAssessments: 14,
+    totalAssignments: 8,
+    modules: []
+  },
+  {
+    id: "biology-fundamentals",
+    title: "Biology: Life Sciences Foundation",
+    description: "Explore the fundamentals of life including cell biology, genetics, evolution, ecology, and human anatomy and physiology.",
+    imageUrl: "/src/assets/course-python.jpg",
+    instructor: "Dr. Charles Darwin",
+    duration: "16 weeks",
+    level: "Beginner",
+    gradeLevel: "High School",
+    rating: 4.7,
+    students: 25630,
+    price: "Free",
+    department: "Biology",
+    tags: ["Biology", "Cells", "Genetics", "Evolution", "Ecology", "Human Body"],
+    totalLessons: 32,
+    totalAssessments: 12,
+    totalAssignments: 8,
+    modules: []
+  },
+  {
+    id: "elementary-math",
+    title: "Elementary Mathematics: Building Strong Foundations",
+    description: "Essential math skills for elementary students including arithmetic, fractions, decimals, geometry, and problem-solving strategies.",
+    imageUrl: "/src/assets/hero-education.jpg",
+    instructor: "Ms. Maria Montessori",
+    duration: "20 weeks",
+    level: "Beginner",
+    gradeLevel: "K-5",
+    rating: 4.9,
+    students: 15420,
+    price: "Free",
+    department: "Mathematics",
+    tags: ["Elementary Math", "Arithmetic", "Fractions", "Geometry", "Problem Solving"],
+    totalLessons: 40,
+    totalAssessments: 16,
+    totalAssignments: 12,
+    modules: []
+  },
+  {
+    id: "middle-school-science",
+    title: "Middle School Science Explorer",
+    description: "Engaging introduction to physical science, earth science, and life science designed specifically for middle school students.",
+    imageUrl: "/src/assets/course-data-science.jpg",
+    instructor: "Dr. Bill Nye",
+    duration: "18 weeks",
+    level: "Beginner",
+    gradeLevel: "6-8",
+    rating: 4.8,
+    students: 19850,
+    price: "Free",
+    department: "Science",
+    tags: ["Middle School", "Physical Science", "Earth Science", "Life Science", "Experiments"],
+    totalLessons: 36,
+    totalAssessments: 14,
+    totalAssignments: 10,
+    modules: []
+  },
+  {
+    id: "advanced-calculus",
+    title: "Advanced Calculus: Multivariable and Vector",
+    description: "Advanced topics in calculus including multivariable functions, vector calculus, line and surface integrals, and applications in physics and engineering.",
+    imageUrl: "/src/assets/course-python.jpg",
+    instructor: "Prof. Leonhard Euler",
+    duration: "16 weeks",
+    level: "Advanced",
+    gradeLevel: "Graduate",
+    rating: 4.6,
+    students: 8920,
+    price: "$199",
+    department: "Mathematics",
+    tags: ["Advanced Calculus", "Multivariable", "Vector Calculus", "Integrals", "Engineering"],
+    totalLessons: 32,
+    totalAssessments: 12,
+    totalAssignments: 8,
+    modules: []
+  },
+  {
+    id: "organic-chemistry",
+    title: "Organic Chemistry: Structure and Reactions",
+    description: "Comprehensive study of organic molecules, reaction mechanisms, synthesis strategies, and applications in biochemistry and medicine.",
+    imageUrl: "/src/assets/hero-education.jpg",
+    instructor: "Dr. Linus Pauling",
+    duration: "20 weeks",
+    level: "Advanced",
+    gradeLevel: "College",
+    rating: 4.4,
+    students: 12750,
+    price: "$149",
+    department: "Chemistry",
+    tags: ["Organic Chemistry", "Molecules", "Reactions", "Synthesis", "Biochemistry"],
+    totalLessons: 40,
+    totalAssessments: 16,
+    totalAssignments: 12,
     modules: []
   }
 ];
@@ -508,7 +709,24 @@ export const departments = [
   "Business",
   "Cybersecurity",
   "Marketing",
-  "Cloud Computing"
+  "Cloud Computing",
+  "Physics",
+  "Mathematics",
+  "English",
+  "Chemistry",
+  "History",
+  "Biology",
+  "Science"
+];
+
+export const gradeLevels = [
+  "All Grade Levels",
+  "K-5",
+  "6-8", 
+  "High School",
+  "College",
+  "Graduate",
+  "Professional"
 ];
 
 export async function getCourse(courseId: string): Promise<Course> {
@@ -529,7 +747,7 @@ export async function getAllCourses(): Promise<Course[]> {
   return mockCourses;
 }
 
-export async function searchCourses(query: string, department?: string): Promise<Course[]> {
+export async function searchCourses(query: string, department?: string, gradeLevel?: string): Promise<Course[]> {
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 300));
   
@@ -541,6 +759,13 @@ export async function searchCourses(query: string, department?: string): Promise
       course.department === department
     );
   }
+
+  // Filter by grade level
+  if (gradeLevel && gradeLevel !== "All Grade Levels") {
+    filteredCourses = filteredCourses.filter(course => 
+      course.gradeLevel === gradeLevel
+    );
+  }
   
   // Filter by search query
   if (query.trim()) {
@@ -549,7 +774,9 @@ export async function searchCourses(query: string, department?: string): Promise
       course.title.toLowerCase().includes(searchTerm) ||
       course.description.toLowerCase().includes(searchTerm) ||
       course.instructor.toLowerCase().includes(searchTerm) ||
-      course.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+      course.tags.some(tag => tag.toLowerCase().includes(searchTerm)) ||
+      course.level.toLowerCase().includes(searchTerm) ||
+      course.gradeLevel.toLowerCase().includes(searchTerm)
     );
   }
   
