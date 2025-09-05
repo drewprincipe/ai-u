@@ -68,7 +68,7 @@ const Index = () => {
                 {/* Bright glass button */}
                 <Button 
                   size="lg"
-                  className="relative px-12 py-6 h-auto text-lg bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 hover:from-blue-600 hover:via-purple-700 hover:to-pink-600 border-0 text-white font-bold transition-all duration-300 hover:scale-105 rounded-full shadow-xl hover:shadow-2xl"
+                  className="relative px-12 py-6 h-auto text-lg bg-white/80 backdrop-blur-xl hover:bg-white/90 border border-blue-200/50 hover:border-blue-300/60 text-slate-900 font-semibold transition-all duration-300 hover:scale-105 rounded-full shadow-xl hover:shadow-2xl"
                   onClick={() => navigate("/auth")}
                 >
                   <Play className="w-5 h-5 mr-3" />
