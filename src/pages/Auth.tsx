@@ -132,6 +132,42 @@ const Auth = () => {
     }
   };
 
+  const handleTestOnboarding = async () => {
+    // For testing - go directly to onboarding regardless of auth status
+    navigate("/onboarding");
+  };
+
+  const handleResetOnboarding = async () => {
+    setIsLoading(true);
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        // Reset onboarding status for existing user
+        await supabase
+          .from('user_profiles')
+          .update({ onboarding_completed: false })
+          .eq('user_id', user.id);
+        
+        toast({
+          title: "Onboarding Reset",
+          description: "You can now redo the onboarding process.",
+        });
+        navigate("/onboarding");
+      } else {
+        // No user, just go to onboarding
+        navigate("/onboarding");
+      }
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-md">
@@ -283,7 +319,18 @@ const Auth = () => {
           </TabsContent>
         </Tabs>
 
-        <div className="text-center mt-6">
+        <div className="text-center mt-6 space-y-2">
+          <div className="border-t pt-4">
+            <p className="text-sm text-muted-foreground mb-2">Testing Tools</p>
+            <div className="flex gap-2 justify-center">
+              <Button variant="outline" size="sm" onClick={handleTestOnboarding}>
+                Test Onboarding
+              </Button>
+              <Button variant="outline" size="sm" onClick={handleResetOnboarding} disabled={isLoading}>
+                Reset & Redo Onboarding
+              </Button>
+            </div>
+          </div>
           <Button variant="ghost" onClick={() => navigate("/")}>
             ← Back to Home
           </Button>
