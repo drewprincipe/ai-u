@@ -39,13 +39,11 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Gemini-inspired gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220 100% 60%), hsl(280 100% 65%), hsl(320 100% 60%));
-    --gradient-secondary: linear-gradient(135deg, hsl(45 100% 65%), hsl(25 100% 60%), hsl(350 100% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 100% 60%) 0%, hsl(260 100% 65%) 25%, hsl(300 100% 60%) 50%, hsl(340 100% 65%) 75%, hsl(20 100% 60%) 100%);
+    /* Education-focused gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(240 73% 59%), hsl(260 73% 59%));
+    --gradient-secondary: linear-gradient(135deg, hsl(45 93% 58%), hsl(35 93% 58%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 73% 59%) 0%, hsl(260 73% 59%) 50%, hsl(280 73% 59%) 100%);
     --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 13% 98%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(160 100% 60%), hsl(200 100% 65%));
-    --gradient-gemini: linear-gradient(45deg, hsl(220 100% 60%), hsl(280 100% 65%), hsl(320 100% 60%), hsl(20 100% 60%));
     
     /* Shadows with primary color */
     --shadow-elegant: 0 10px 30px -10px hsl(240 73% 59% / 0.2);
@@ -59,12 +57,19 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
+
     --sidebar-foreground: 240 5.3% 26.1%;
+
     --sidebar-primary: 240 5.9% 10%;
+
     --sidebar-primary-foreground: 0 0% 98%;
+
     --sidebar-accent: 240 4.8% 95.9%;
+
     --sidebar-accent-foreground: 240 5.9% 10%;
+
     --sidebar-border: 220 13% 91%;
+
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -98,13 +103,11 @@ All colors MUST be HSL.
     --input: 230 15% 15%;
     --ring: 240 100% 70%;
 
-    /* Dark mode gradients - Gemini style */
-    --gradient-primary: linear-gradient(135deg, hsl(220 100% 70%), hsl(280 100% 75%), hsl(320 100% 70%));
-    --gradient-secondary: linear-gradient(135deg, hsl(45 100% 70%), hsl(25 100% 65%), hsl(350 100% 70%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 100% 70%) 0%, hsl(260 100% 75%) 25%, hsl(300 100% 70%) 50%, hsl(340 100% 75%) 75%, hsl(20 100% 70%) 100%);
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(240 100% 70%), hsl(260 100% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(45 93% 58%), hsl(35 93% 58%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 100% 70%) 0%, hsl(260 100% 70%) 50%, hsl(280 100% 70%) 100%);
     --gradient-card: linear-gradient(135deg, hsl(230 15% 9%) 0%, hsl(230 15% 12%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(160 100% 70%), hsl(200 100% 75%));
-    --gradient-gemini: linear-gradient(45deg, hsl(220 100% 70%), hsl(280 100% 75%), hsl(320 100% 70%), hsl(20 100% 70%));
     
     /* Dark mode shadows */
     --shadow-elegant: 0 10px 30px -10px hsl(240 100% 70% / 0.3);
@@ -139,32 +142,5 @@ All colors MUST be HSL.
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
-
-  /* Academic notebook styles */
-  
-  /* Subtle modern animations */
-  @keyframes gentle-float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-3px); }
-  }
-
-  @keyframes fade-in-up {
-    0% { 
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% { 
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .gentle-float {
-    animation: gentle-float 4s ease-in-out infinite;
-  }
-
-  .academic-fade-in {
-    animation: fade-in-up 0.6s ease-out forwards;
   }
 }
