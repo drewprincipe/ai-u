@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,23 +12,30 @@ interface AITutorWidgetProps {
   };
 }
 
-// Declare the ElevenLabs ConvAI custom element
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'elevenlabs-convai': {
-        'agent-id': string;
-        style?: React.CSSProperties;
-      };
-    }
-  }
-}
-
 export function AITutorWidget({ 
   agentId = "agent_1801k3c00m0peyd87z8t18nmk59x",
   lessonContext 
 }: AITutorWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+
+  useEffect(() => {
+    // Load the ElevenLabs ConvAI script dynamically
+    const loadScript = () => {
+      if (document.querySelector('script[src*="convai-widget-embed"]')) {
+        setScriptLoaded(true);
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
+      script.async = true;
+      script.onload = () => setScriptLoaded(true);
+      document.head.appendChild(script);
+    };
+
+    loadScript();
+  }, []);
 
   const toggleWidget = () => {
     setIsOpen(!isOpen);
@@ -85,19 +92,40 @@ export function AITutorWidget({
             </CardHeader>
             <CardContent className="p-0 h-full">
               {/* ElevenLabs ConvAI Widget */}
-              <elevenlabs-convai 
-                agent-id={agentId}
-                style={{ 
-                  width: '100%', 
-                  height: '280px',
-                  border: 'none',
-                  borderRadius: '0 0 8px 8px'
-                }}
-              />
+              {scriptLoaded ? (
+                <elevenlabs-convai 
+                  agent-id={agentId}
+                  style={{ 
+                    width: '100%', 
+                    height: '280px',
+                    border: 'none',
+                    borderRadius: '0 0 8px 8px'
+                  }}
+                />
+              ) : (
+                <div className="flex items-center justify-center h-full">
+                  <div className="text-center">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-2"></div>
+                    <p className="text-sm text-muted-foreground">Loading AI Tutor...</p>
+                  </div>
+                </div>
+              )}
             </CardContent>
           </Card>
         </div>
       )}
     </>
   );
+}
+
+// Declare the ElevenLabs ConvAI custom element
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'elevenlabs-convai': {
+        'agent-id': string;
+        style?: React.CSSProperties;
+      };
+    }
+  }
 }
