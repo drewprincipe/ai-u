@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Index = () => {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen relative overflow-hidden bg-gray-50">
       {/* Apple-style frosted glass background */}
       <div className="fixed inset-0 bg-white/10 backdrop-blur-md">
         {/* Subtle neutral depth elements */}
