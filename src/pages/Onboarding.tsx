@@ -427,19 +427,27 @@ const Onboarding = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background p-4">
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 p-4">
+      {/* Subtle floating orbs */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-1/5 right-1/6 w-24 h-24 bg-gradient-primary rounded-full blur-3xl opacity-6"></div>
+        <div className="absolute bottom-1/4 left-1/5 w-32 h-32 bg-gradient-accent rounded-full blur-3xl opacity-4"></div>
+      </div>
+      
+      {/* Subtle glass overlay */}
+      <div className="fixed inset-0 bg-white/15 backdrop-blur-[40px] pointer-events-none"></div>
+      <div className="max-w-2xl mx-auto relative z-10">
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold">Welcome to AI University</h1>
-            <div className="text-sm text-muted-foreground">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">Welcome to AI University</h1>
+            <div className="text-sm text-slate-600">
               Step {step} of {totalSteps}
             </div>
           </div>
           <Progress value={(step / totalSteps) * 100} className="w-full" />
         </div>
 
-        <Card>
+        <Card className="bg-white/60 backdrop-blur-xl border-blue-100/50 shadow-lg">
           <CardContent className="p-8">
             {renderStep()}
             

@@ -124,13 +124,21 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-white via-blue-50/20 to-purple-50/10">
+      {/* Very subtle floating orbs */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-1/6 right-1/8 w-20 h-20 bg-gradient-primary rounded-full blur-3xl opacity-3"></div>
+        <div className="absolute bottom-1/5 left-1/6 w-24 h-24 bg-gradient-accent rounded-full blur-3xl opacity-2"></div>
+      </div>
+      
+      {/* Very subtle glass overlay */}
+      <div className="fixed inset-0 bg-white/10 backdrop-blur-[30px] pointer-events-none"></div>
       {/* Header */}
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="border-b border-blue-100/50 bg-white/60 backdrop-blur-xl relative z-10">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2 font-bold text-xl">
-            <Brain className="h-6 w-6 text-primary" />
-            AI University
+            <div className="w-5 h-5 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 rounded-lg shadow-lg"></div>
+            <span className="bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">AI University</span>
           </div>
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="sm">
@@ -149,12 +157,12 @@ const Dashboard = () => {
         </div>
       </header>
 
-      <div className="container py-8">
+      <div className="container py-8 relative z-10">
         {/* Welcome Section */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-3xl font-bold mb-2">
+              <h1 className="text-3xl font-bold mb-2 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
                 Welcome back, {userProfile.full_name}!
               </h1>
               <div className="flex items-center gap-2">
@@ -171,7 +179,7 @@ const Dashboard = () => {
             </div>
           </div>
           
-          <Card className="bg-gradient-card">
+          <Card className="bg-white/50 backdrop-blur-lg border-blue-100/50 shadow-lg">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <Target className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
@@ -186,7 +194,7 @@ const Dashboard = () => {
 
         {/* Stats Grid */}
         <div className="grid md:grid-cols-4 gap-6 mb-8">
-          <Card>
+          <Card className="bg-white/50 backdrop-blur-lg border-blue-100/50 shadow-lg">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -198,7 +206,7 @@ const Dashboard = () => {
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="bg-white/50 backdrop-blur-lg border-blue-100/50 shadow-lg">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -210,7 +218,7 @@ const Dashboard = () => {
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="bg-white/50 backdrop-blur-lg border-blue-100/50 shadow-lg">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -222,7 +230,7 @@ const Dashboard = () => {
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="bg-white/50 backdrop-blur-lg border-blue-100/50 shadow-lg">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -238,10 +246,10 @@ const Dashboard = () => {
         {/* Recommended Courses */}
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <Card>
+            <Card className="bg-white/50 backdrop-blur-lg border-blue-100/50 shadow-lg">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <BookOpen className="h-5 w-5" />
+                <CardTitle className="flex items-center gap-2 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+                  <BookOpen className="h-5 w-5 text-blue-600" />
                   Recommended for You
                 </CardTitle>
               </CardHeader>
@@ -262,10 +270,10 @@ const Dashboard = () => {
           </div>
 
           <div className="space-y-6">
-            <Card>
+            <Card className="bg-white/50 backdrop-blur-lg border-blue-100/50 shadow-lg">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MessageCircle className="h-5 w-5" />
+                <CardTitle className="flex items-center gap-2 bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+                  <MessageCircle className="h-5 w-5 text-blue-600" />
                   AI Tutor
                 </CardTitle>
               </CardHeader>
@@ -280,9 +288,9 @@ const Dashboard = () => {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="bg-white/50 backdrop-blur-lg border-blue-100/50 shadow-lg">
               <CardHeader>
-                <CardTitle>Quick Actions</CardTitle>
+                <CardTitle className="bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
                 <Button variant="ghost" className="w-full justify-start">

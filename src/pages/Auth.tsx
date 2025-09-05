@@ -169,15 +169,23 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 flex items-center justify-center p-4">
+      {/* Subtle floating orbs for ambiance */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-1/4 right-1/5 w-32 h-32 bg-gradient-primary rounded-full blur-3xl opacity-5"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-gradient-accent rounded-full blur-3xl opacity-4"></div>
+      </div>
+      
+      {/* Subtle glass overlay */}
+      <div className="fixed inset-0 bg-white/20 backdrop-blur-[50px] pointer-events-none"></div>
+      <div className="w-full max-w-md relative z-10">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 font-bold text-2xl mb-4">
-            <Brain className="h-8 w-8 text-primary" />
-            AI University
+            <div className="w-6 h-6 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 rounded-lg shadow-lg"></div>
+            <span className="bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">AI University</span>
           </div>
-          <h1 className="text-3xl font-bold mb-2">Welcome</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-3xl font-bold mb-2 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">Welcome</h1>
+          <p className="text-slate-600">
             Start your personalized learning journey today
           </p>
         </div>
@@ -189,9 +197,9 @@ const Auth = () => {
           </TabsList>
 
           <TabsContent value="signin">
-            <Card>
+            <Card className="bg-white/60 backdrop-blur-xl border-blue-100/50 shadow-lg">
               <CardHeader>
-                <CardTitle>Sign In</CardTitle>
+                <CardTitle className="bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">Sign In</CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSignIn} className="space-y-4">
@@ -237,9 +245,9 @@ const Auth = () => {
           </TabsContent>
 
           <TabsContent value="signup">
-            <Card>
+            <Card className="bg-white/60 backdrop-blur-xl border-blue-100/50 shadow-lg">
               <CardHeader>
-                <CardTitle>Create Account</CardTitle>
+                <CardTitle className="bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">Create Account</CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSignUp} className="space-y-4">
