@@ -1,4 +1,5 @@
 import { LessonVideo, TranscriptSegment, InteractivePoint, UserNote, VideoProgress, LessonMeta } from '@/types/lesson';
+import { supabase } from '@/integrations/supabase/client';
 
 // Mock video URL - in production this would come from your content generation system
 const MOCK_VIDEO_URL = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
@@ -131,7 +132,60 @@ export const saveUserNote = async (note: Omit<UserNote, 'id' | 'createdAt' | 'up
   return newNote;
 };
 
+// Generate AI notes for a lesson
+export const generateLessonNotes = async (lessonId: string): Promise<UserNote[]> => {
+  const lesson = await getLessonVideo(lessonId);
+  const lessonMeta = await getLessonMeta(lessonId);
+  
+  if (!lesson || !lessonMeta) {
+    throw new Error('Lesson not found');
+  }
+
+  try {
+    // Create transcript text from segments
+    const transcriptText = lesson.transcript
+      .map(segment => segment.text)
+      .join(' ');
+
+    const { data, error } = await supabase.functions.invoke('generate-lesson-notes', {
+      body: {
+        transcript: transcriptText,
+        lessonTitle: lessonMeta.title,
+        topics: lessonMeta.topics
+      }
+    });
+
+    if (error) {
+      console.error('Error generating notes:', error);
+      throw new Error('Failed to generate notes');
+    }
+
+    return data.notes || [];
+  } catch (error) {
+    console.error('Error in generateLessonNotes:', error);
+    throw error;
+  }
+};
+
 export const getUserNotes = async (lessonId: string): Promise<UserNote[]> => {
-  const saved = localStorage.getItem(`lesson-notes-${lessonId}`);
-  return saved ? JSON.parse(saved) : [];
+  // First, check if we already have generated notes
+  const existingNotes = JSON.parse(localStorage.getItem(`lesson-notes-${lessonId}`) || '[]');
+  
+  // If no generated notes exist, create them
+  const hasGeneratedNotes = existingNotes.some((note: UserNote) => note.isGenerated);
+  
+  if (!hasGeneratedNotes) {
+    try {
+      const generatedNotes = await generateLessonNotes(lessonId);
+      const allNotes = [...existingNotes, ...generatedNotes];
+      localStorage.setItem(`lesson-notes-${lessonId}`, JSON.stringify(allNotes));
+      return allNotes.sort((a, b) => a.timestamp - b.timestamp);
+    } catch (error) {
+      console.error('Failed to generate notes:', error);
+      // Return existing notes if generation fails
+      return existingNotes.sort((a, b) => a.timestamp - b.timestamp);
+    }
+  }
+  
+  return existingNotes.sort((a, b) => a.timestamp - b.timestamp);
 };

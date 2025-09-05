@@ -39,6 +39,9 @@ export interface UserNote {
   lessonId: string;
   timestamp: number;
   content: string;
+  title?: string;
+  type?: 'key_concept' | 'example' | 'definition' | 'summary' | 'personal';
+  isGenerated?: boolean;
   createdAt: Date;
   updatedAt: Date;
 }

@@ -360,15 +360,38 @@ export function LessonVideoPlayer({ lesson, onProgress, className = '' }: Lesson
               <ScrollArea className="h-48">
                 <div className="space-y-2">
                   {notes.map((note) => (
-                    <div key={note.id} className="p-3 bg-muted/50 rounded-lg">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs text-muted-foreground font-mono">
+                    <div key={note.id} className="p-3 bg-muted/50 rounded-lg space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span 
+                          className="text-xs text-muted-foreground font-mono cursor-pointer hover:text-primary"
+                          onClick={() => jumpToTranscript({ id: `jump-${note.timestamp}`, startTime: note.timestamp, endTime: note.timestamp, text: "" })}
+                        >
                           {formatTime(note.timestamp)}
                         </span>
-                        <span className="text-xs text-muted-foreground">
-                          {note.createdAt.toLocaleDateString()}
-                        </span>
+                        <div className="flex items-center gap-2">
+                          {note.isGenerated && (
+                            <Badge variant="outline" className="text-xs">
+                              AI Generated
+                            </Badge>
+                          )}
+                          {note.type && (
+                            <Badge 
+                              variant={note.type === 'key_concept' ? 'default' : 'secondary'}
+                              className="text-xs"
+                            >
+                              {note.type.replace('_', ' ')}
+                            </Badge>
+                          )}
+                          {!note.isGenerated && (
+                            <span className="text-xs text-muted-foreground">
+                              {note.createdAt.toLocaleDateString()}
+                            </span>
+                          )}
+                        </div>
                       </div>
+                      {note.title && (
+                        <h4 className="font-medium text-sm">{note.title}</h4>
+                      )}
                       <p className="text-sm">{note.content}</p>
                     </div>
                   ))}
