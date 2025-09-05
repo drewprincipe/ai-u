@@ -260,9 +260,9 @@ const Dashboard = () => {
                   <p className="text-muted-foreground mb-6">
                     Our AI is analyzing your goals and preferences to create the perfect learning path for you.
                   </p>
-                  <Button>
+                  <Button onClick={() => navigate('/lesson/lesson-ds-101')}>
                     <Play className="h-4 w-4 mr-2" />
-                    Explore Available Courses
+                    Try Demo Lesson
                   </Button>
                 </div>
               </CardContent>
