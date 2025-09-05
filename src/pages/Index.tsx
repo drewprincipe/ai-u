@@ -6,22 +6,16 @@ const Index = () => {
   const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Glassy gradient background */}
+      {/* Apple-style frosted glass background */}
       <div className="fixed inset-0">
-        <div className="absolute inset-0 bg-gradient-hero opacity-10"></div>
-        <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-primary rounded-full blur-3xl opacity-30 animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-secondary rounded-full blur-3xl opacity-25 animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-accent rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }}></div>
+        {/* Subtle neutral depth elements */}
+        <div className="absolute top-20 left-20 w-96 h-96 bg-white/3 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-white/2 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-white/1 rounded-full blur-3xl"></div>
         
-        {/* Glass overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 backdrop-blur-[1px]"></div>
-      </div>
-
-      {/* Floating elements */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-gradient-primary rounded-full animate-gentle-float opacity-60"></div>
-        <div className="absolute top-2/3 right-1/4 w-3 h-3 bg-gradient-secondary rounded-full animate-gentle-float opacity-50" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/3 right-1/3 w-1.5 h-1.5 bg-gradient-accent rounded-full animate-gentle-float opacity-70" style={{ animationDelay: '3s' }}></div>
+        {/* Apple-style frosted glass overlay */}
+        <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-white/[0.02] to-white/[0.08] backdrop-blur-[1px]"></div>
       </div>
 
       {/* Main Content */}
