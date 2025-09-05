@@ -1,12 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { GraduationCap, ArrowRight, LogIn, BookOpen, Award, Users, Shield } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
 const Index = () => {
   const navigate = useNavigate();
-  
-  return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+  return <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Dynamic Gemini-style background orbs */}
       <div className="fixed inset-0">
         {/* Primary gradient orb */}
@@ -17,9 +14,15 @@ const Index = () => {
         <div className="absolute top-1/3 right-20 w-64 h-64 bg-gradient-accent rounded-full blur-2xl opacity-10"></div>
         
         {/* Floating particles */}
-        <div className="absolute top-1/4 left-1/3 w-4 h-4 bg-white rounded-full blur-sm opacity-40 gentle-float" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-gradient-primary rounded-full blur-sm opacity-30 gentle-float" style={{ animationDelay: '1.2s' }}></div>
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-gradient-accent rounded-full opacity-50 gentle-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/4 left-1/3 w-4 h-4 bg-white rounded-full blur-sm opacity-40 gentle-float" style={{
+        animationDelay: '0.5s'
+      }}></div>
+        <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-gradient-primary rounded-full blur-sm opacity-30 gentle-float" style={{
+        animationDelay: '1.2s'
+      }}></div>
+        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-gradient-accent rounded-full opacity-50 gentle-float" style={{
+        animationDelay: '2s'
+      }}></div>
       </div>
 
       {/* Apple-style liquid glass overlay */}
@@ -68,18 +71,16 @@ const Index = () => {
           </div>
 
           {/* Main Headline with modern typography */}
-          <div className="space-y-16 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="space-y-16 animate-fade-in" style={{
+          animationDelay: '0.2s'
+        }}>
             <div className="space-y-8">
               <h1 className="text-7xl md:text-9xl font-bold leading-[0.9] tracking-tight">
                 <span className="block mb-6">
-                  <span className="text-white">Excellence in</span>
+                  <span className="text-white">Excellence in </span>
                 </span>
-                <span className="block bg-gradient-gemini bg-clip-text text-transparent mb-6">
-                  education
-                </span>
-                <span className="block text-white text-5xl md:text-6xl font-light">
-                  reimagined
-                </span>
+                <span className="block bg-gradient-gemini bg-clip-text text-transparent mb-6">education</span>
+                <span className="block text-white text-5xl md:text-6xl font-light">reimagined.</span>
               </h1>
             </div>
             
@@ -90,7 +91,9 @@ const Index = () => {
           </div>
 
           {/* Enhanced CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center animate-fade-in" style={{
+          animationDelay: '0.4s'
+        }}>
             {/* Primary Action - Premium Glass */}
             <div className="relative group">
               {/* Glow layers */}
@@ -104,11 +107,7 @@ const Index = () => {
               <div className="absolute top-3 left-6 w-12 h-6 bg-white/[0.4] rounded-full blur-md"></div>
               <div className="absolute bottom-4 right-8 w-8 h-4 bg-white/[0.2] rounded-full blur-sm"></div>
               
-              <Button 
-                size="lg" 
-                className="relative text-xl px-20 py-10 h-auto bg-white/[0.12] backdrop-blur-[40px] hover:bg-white/[0.18] hover:scale-105 transition-all duration-500 rounded-full border border-white/[0.2] text-white font-semibold shadow-2xl group-hover:shadow-glow"
-                onClick={() => navigate("/auth")}
-              >
+              <Button size="lg" className="relative text-xl px-20 py-10 h-auto bg-white/[0.12] backdrop-blur-[40px] hover:bg-white/[0.18] hover:scale-105 transition-all duration-500 rounded-full border border-white/[0.2] text-white font-semibold shadow-2xl group-hover:shadow-glow" onClick={() => navigate("/auth")}>
                 <BookOpen className="h-6 w-6 mr-4" />
                 Start Learning
                 <ArrowRight className="h-6 w-6 ml-4 group-hover:translate-x-1 transition-transform" />
@@ -121,11 +120,7 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.15] via-transparent to-white/[0.08] rounded-full"></div>
               <div className="absolute top-3 left-6 w-8 h-4 bg-white/[0.25] rounded-full blur-sm"></div>
               
-              <Button 
-                size="lg" 
-                className="relative text-xl px-20 py-10 h-auto bg-white/[0.05] backdrop-blur-[40px] hover:bg-white/[0.10] hover:scale-105 transition-all duration-500 rounded-full border border-white/[0.15] text-white font-semibold shadow-xl"
-                onClick={() => navigate("/auth")}
-              >
+              <Button size="lg" className="relative text-xl px-20 py-10 h-auto bg-white/[0.05] backdrop-blur-[40px] hover:bg-white/[0.10] hover:scale-105 transition-all duration-500 rounded-full border border-white/[0.15] text-white font-semibold shadow-xl" onClick={() => navigate("/auth")}>
                 <LogIn className="h-6 w-6 mr-4" />
                 Sign In
               </Button>
@@ -133,13 +128,27 @@ const Index = () => {
           </div>
 
           {/* Modern Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-24 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            {[
-              { stat: "100K+", label: "Active Students", gradient: "gradient-gemini", delay: "0s" },
-              { stat: "96%", label: "Success Rate", gradient: "gradient-primary", delay: "0.2s" },
-              { stat: "50+", label: "Subject Areas", gradient: "gradient-accent", delay: "0.4s" }
-            ].map((item, index) => (
-              <div key={index} className="relative group" style={{ animationDelay: item.delay }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-24 animate-fade-in" style={{
+          animationDelay: '0.6s'
+        }}>
+            {[{
+            stat: "100K+",
+            label: "Active Students",
+            gradient: "gradient-gemini",
+            delay: "0s"
+          }, {
+            stat: "96%",
+            label: "Success Rate",
+            gradient: "gradient-primary",
+            delay: "0.2s"
+          }, {
+            stat: "50+",
+            label: "Subject Areas",
+            gradient: "gradient-accent",
+            delay: "0.4s"
+          }].map((item, index) => <div key={index} className="relative group" style={{
+            animationDelay: item.delay
+          }}>
                 {/* Background glow */}
                 <div className={`absolute inset-0 bg-${item.gradient} rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-all duration-500`}></div>
                 
@@ -153,12 +162,13 @@ const Index = () => {
                   </div>
                   <div className="text-slate-300 font-medium text-lg">{item.label}</div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
 
           {/* Modern Tagline */}
-          <div className="pt-24 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <div className="pt-24 animate-fade-in" style={{
+          animationDelay: '0.8s'
+        }}>
             <div className="flex items-center justify-center gap-6 text-slate-400 font-light text-lg">
               <span>Academic Excellence</span>
               <div className="w-2 h-2 bg-gradient-primary rounded-full"></div>
@@ -169,8 +179,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
