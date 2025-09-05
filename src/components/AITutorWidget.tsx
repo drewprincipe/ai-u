@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { MessageCircle, X, Bot } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -12,46 +12,25 @@ interface AITutorWidgetProps {
   };
 }
 
+// Declare the ElevenLabs ConvAI custom element
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'elevenlabs-convai': {
+        'agent-id': string;
+        style?: React.CSSProperties;
+      };
+    }
+  }
+}
+
 export function AITutorWidget({ 
   agentId = "agent_1801k3c00m0peyd87z8t18nmk59x",
   lessonContext 
 }: AITutorWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isWidgetReady, setIsWidgetReady] = useState(false);
-
-  useEffect(() => {
-    // Check if ElevenLabs widget is available
-    const checkWidget = () => {
-      if (window.ElevenLabsConvAI) {
-        setIsWidgetReady(true);
-      }
-    };
-
-    // Check immediately and set up interval
-    checkWidget();
-    const interval = setInterval(checkWidget, 500);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const toggleWidget = () => {
-    if (isWidgetReady && !isOpen) {
-      // Initialize the ElevenLabs widget when opening
-      try {
-        window.ElevenLabsConvAI.widget.mount({
-          agentId,
-          container: document.getElementById('tutor-widget-container'),
-          onLoad: () => {
-            console.log('AI Tutor widget loaded');
-          },
-          onError: (error: any) => {
-            console.error('AI Tutor widget error:', error);
-          }
-        });
-      } catch (error) {
-        console.error('Failed to initialize AI Tutor:', error);
-      }
-    }
     setIsOpen(!isOpen);
   };
 
@@ -71,7 +50,6 @@ export function AITutorWidget({
             className={`rounded-full h-14 w-14 shadow-lg transition-all duration-300 ${
               isOpen ? 'bg-destructive hover:bg-destructive/90' : 'bg-primary hover:bg-primary/90'
             }`}
-            disabled={!isWidgetReady}
           >
             {isOpen ? (
               <X className="h-6 w-6" />
@@ -106,41 +84,20 @@ export function AITutorWidget({
               )}
             </CardHeader>
             <CardContent className="p-0 h-full">
-              {/* ElevenLabs ConvAI Widget Container */}
-              <div 
-                id="tutor-widget-container" 
-                className="h-full w-full rounded-b-lg overflow-hidden"
-                style={{ minHeight: '280px' }}
+              {/* ElevenLabs ConvAI Widget */}
+              <elevenlabs-convai 
+                agent-id={agentId}
+                style={{ 
+                  width: '100%', 
+                  height: '280px',
+                  border: 'none',
+                  borderRadius: '0 0 8px 8px'
+                }}
               />
-              
-              {!isWidgetReady && (
-                <div className="flex items-center justify-center h-full">
-                  <div className="text-center">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-2"></div>
-                    <p className="text-sm text-muted-foreground">Loading AI Tutor...</p>
-                  </div>
-                </div>
-              )}
             </CardContent>
           </Card>
         </div>
       )}
     </>
   );
-}
-
-// Extend window interface for TypeScript
-declare global {
-  interface Window {
-    ElevenLabsConvAI: {
-      widget: {
-        mount: (options: {
-          agentId: string;
-          container: HTMLElement | null;
-          onLoad?: () => void;
-          onError?: (error: any) => void;
-        }) => void;
-      };
-    };
-  }
 }
