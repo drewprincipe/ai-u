@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Clock, Users, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface CourseCardProps {
   title: string;
@@ -12,6 +13,7 @@ interface CourseCardProps {
   rating: number;
   level: "Beginner" | "Intermediate" | "Advanced";
   price?: string;
+  courseId?: string;
 }
 
 export function CourseCard({
@@ -22,7 +24,8 @@ export function CourseCard({
   students,
   rating,
   level,
-  price
+  price,
+  courseId
 }: CourseCardProps) {
   return (
     <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 bg-gradient-card border-0">
@@ -74,9 +77,17 @@ export function CourseCard({
           </div>
         </div>
         
-        <Button className="w-full" variant="hero">
-          Start Learning
-        </Button>
+        {courseId ? (
+          <Button asChild className="w-full" variant="hero">
+            <Link to={`/course/${courseId}`}>
+              Start Learning
+            </Link>
+          </Button>
+        ) : (
+          <Button className="w-full" variant="hero">
+            Start Learning
+          </Button>
+        )}
       </CardContent>
     </Card>
   );
