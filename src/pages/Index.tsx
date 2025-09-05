@@ -6,17 +6,22 @@ const Index = () => {
   const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Subtle Background with selective elements */}
+      {/* Glassy gradient background */}
       <div className="fixed inset-0">
-        <div className="absolute inset-0 bg-gradient-primary/3 opacity-50"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-hero opacity-10"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-primary rounded-full blur-3xl opacity-30 animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-secondary rounded-full blur-3xl opacity-25 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-accent rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }}></div>
+        
+        {/* Glass overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 backdrop-blur-[1px]"></div>
       </div>
 
-      {/* Minimal floating elements */}
+      {/* Floating elements */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-primary/20 rounded-full animate-gentle-float"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-1.5 h-1.5 bg-accent/20 rounded-full animate-gentle-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-gradient-primary rounded-full animate-gentle-float opacity-60"></div>
+        <div className="absolute top-2/3 right-1/4 w-3 h-3 bg-gradient-secondary rounded-full animate-gentle-float opacity-50" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/3 right-1/3 w-1.5 h-1.5 bg-gradient-accent rounded-full animate-gentle-float opacity-70" style={{ animationDelay: '3s' }}></div>
       </div>
 
       {/* Main Content */}
@@ -27,9 +32,9 @@ const Index = () => {
           <div className="animate-fade-in">
             <div className="inline-flex items-center gap-4 mb-12">
               <div className="relative">
-                <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-lg"></div>
-                <div className="relative p-6 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10">
-                  <Sparkles className="h-12 w-12 text-primary" />
+                <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-lg opacity-60"></div>
+                <div className="relative p-6 bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20">
+                  <Sparkles className="h-12 w-12 text-white" />
                 </div>
               </div>
               <span className="text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
@@ -82,22 +87,23 @@ const Index = () => {
           {/* Stats with Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-16 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <div className="relative group">
-              <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 hover:border-primary/20 transition-all">
+              <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
+              <div className="relative p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 hover:border-white/30 transition-all">
                 <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-3">1M+</div>
                 <div className="text-muted-foreground font-medium">Students Worldwide</div>
               </div>
             </div>
             <div className="relative group">
-              <div className="relative p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 hover:border-white/20 transition-all">
-                <div className="text-4xl font-bold text-foreground mb-3">4.9★</div>
+              <div className="absolute inset-0 bg-gradient-secondary rounded-3xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
+              <div className="relative p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 hover:border-white/30 transition-all">
+                <div className="text-4xl font-bold bg-gradient-secondary bg-clip-text text-transparent mb-3">4.9★</div>
                 <div className="text-muted-foreground font-medium">Average Rating</div>
               </div>
             </div>
             <div className="relative group">
-              <div className="absolute inset-0 bg-accent/5 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 hover:border-accent/20 transition-all">
-                <div className="text-4xl font-bold text-accent mb-3">500+</div>
+              <div className="absolute inset-0 bg-gradient-accent rounded-3xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
+              <div className="relative p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 hover:border-white/30 transition-all">
+                <div className="text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent mb-3">500+</div>
                 <div className="text-muted-foreground font-medium">Courses Available</div>
               </div>
             </div>
