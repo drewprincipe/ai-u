@@ -29,7 +29,6 @@ interface OnboardingData {
   userType: UserType;
   topicsOfInterest: string[];
   preferredLearningStyle: string;
-  timeline: string;
 }
 
 const Onboarding = () => {
@@ -39,15 +38,14 @@ const Onboarding = () => {
   const [authLoading, setAuthLoading] = useState(true);
   const { toast } = useToast();
   const navigate = useNavigate();
-  const totalSteps = 5;
+  const totalSteps = 4;
 
   const [data, setData] = useState<OnboardingData>({
     fullName: "",
     age: "",
     userType: "lifelong-learner",
     topicsOfInterest: [],
-    preferredLearningStyle: "",
-    timeline: ""
+    preferredLearningStyle: ""
   });
 
   // Check authentication on component mount
@@ -140,7 +138,7 @@ const Onboarding = () => {
         time_commitment: "To be determined by AI",
         preferred_learning_style: data.preferredLearningStyle,
         subjects: data.topicsOfInterest,
-        timeline: data.timeline,
+        timeline: "flexible",
         onboarding_completed: true,
       };
       
@@ -383,55 +381,12 @@ const Onboarding = () => {
                 </RadioGroup>
               </div>
             </div>
-          </div>
-        );
 
-      case 5:
-        return (
-          <div className="space-y-6">
-            <div className="text-center space-y-2">
-              <GraduationCap className="h-12 w-12 text-primary mx-auto" />
-              <h2 className="text-2xl font-bold">Almost done!</h2>
-              <p className="text-muted-foreground">Final details to personalize your journey</p>
-            </div>
-            
-            <div className="space-y-4">
-              <div>
-                <Label htmlFor="timeline">Target Timeline</Label>
-                <RadioGroup
-                  value={data.timeline}
-                  onValueChange={(value) => updateData("timeline", value)}
-                  className="mt-2"
-                >
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="1-3 months" id="timeline1" />
-                    <Label htmlFor="timeline1">1-3 months</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="3-6 months" id="timeline2" />
-                    <Label htmlFor="timeline2">3-6 months</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="6-12 months" id="timeline3" />
-                    <Label htmlFor="timeline3">6-12 months</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="1+ years" id="timeline4" />
-                    <Label htmlFor="timeline4">1+ years</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="flexible" id="timeline5" />
-                    <Label htmlFor="timeline5">Flexible / No rush</Label>
-                  </div>
-                </RadioGroup>
-              </div>
-
-              <div className="p-4 bg-muted/30 rounded-lg">
-                <h3 className="font-medium mb-2">Ready to start your AI-powered learning journey?</h3>
-                <p className="text-sm text-muted-foreground">
-                  Based on your responses, we'll create a personalized curriculum just for you.
-                </p>
-              </div>
+            <div className="p-4 bg-muted/30 rounded-lg">
+              <h3 className="font-medium mb-2">Ready to start your AI-powered learning journey?</h3>
+              <p className="text-sm text-muted-foreground">
+                Based on your responses, we'll create a personalized curriculum just for you.
+              </p>
             </div>
           </div>
         );
@@ -451,8 +406,6 @@ const Onboarding = () => {
         return data.topicsOfInterest.length > 0;
       case 4:
         return data.preferredLearningStyle;
-      case 5:
-        return data.timeline;
       default:
         return true;
     }
