@@ -1,184 +1,137 @@
 import { Button } from "@/components/ui/button";
-import { GraduationCap, ArrowRight, LogIn, BookOpen, Award, Users, Shield } from "lucide-react";
+import { Play, Sparkles, ChevronRight, Brain, Zap, Globe } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
 const Index = () => {
   const navigate = useNavigate();
-  return <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Dynamic Gemini-style background orbs */}
-      <div className="fixed inset-0">
-        {/* Primary gradient orb */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-gemini rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        
-        {/* Secondary gradient orbs */}
-        <div className="absolute bottom-32 right-1/4 w-80 h-80 bg-gradient-primary rounded-full blur-2xl opacity-15 gentle-float"></div>
-        <div className="absolute top-1/3 right-20 w-64 h-64 bg-gradient-accent rounded-full blur-2xl opacity-10"></div>
-        
-        {/* Floating particles */}
-        <div className="absolute top-1/4 left-1/3 w-4 h-4 bg-white rounded-full blur-sm opacity-40 gentle-float" style={{
-        animationDelay: '0.5s'
-      }}></div>
-        <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-gradient-primary rounded-full blur-sm opacity-30 gentle-float" style={{
-        animationDelay: '1.2s'
-      }}></div>
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-gradient-accent rounded-full opacity-50 gentle-float" style={{
-        animationDelay: '2s'
-      }}></div>
+
+  return (
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-black">
+      {/* Subtle Gemini-inspired floating orbs */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/5 w-64 h-64 bg-gradient-gemini rounded-full blur-3xl opacity-8 animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-primary rounded-full blur-3xl opacity-6 gentle-float"></div>
+        <div className="absolute top-2/3 left-1/2 w-48 h-48 bg-gradient-accent rounded-full blur-2xl opacity-4"></div>
       </div>
 
-      {/* Apple-style liquid glass overlay */}
-      <div className="fixed inset-0">
-        {/* Primary glass layer */}
-        <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-[40px]"></div>
-        
-        {/* Secondary glass layers for depth */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-white/[0.03] backdrop-blur-[20px]"></div>
-        
-        {/* Specular highlights */}
-        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-white/[0.15] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-32 h-32 bg-white/[0.10] rounded-full blur-2xl"></div>
-      </div>
+      {/* Apple liquid glass overlay */}
+      <div className="fixed inset-0 bg-white/[0.01] backdrop-blur-[100px] pointer-events-none"></div>
 
-      {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-12">
-        <div className="text-center space-y-20 max-w-7xl mx-auto">
-          
-          {/* Brand with enhanced design */}
-          <div className="animate-fade-in">
-            <div className="inline-flex items-center gap-6 mb-16">
-              <div className="relative group">
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-gemini rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity"></div>
-                
-                {/* Glass container */}
-                <div className="relative p-8 bg-white/[0.08] backdrop-blur-[30px] rounded-3xl border border-white/[0.15] shadow-2xl">
-                  <GraduationCap className="h-16 w-16 text-white" />
-                  
-                  {/* Floating accent */}
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-primary rounded-full blur-sm opacity-80"></div>
-                </div>
-              </div>
-              
-              <div className="text-left">
-                <span className="text-6xl font-bold bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-transparent">
-                  AI University
-                </span>
-                <div className="flex items-center gap-2 mt-2">
-                  <Award className="h-4 w-4 text-blue-400" />
-                  <span className="text-sm text-slate-300 font-medium">Accredited Education Platform</span>
-                </div>
-              </div>
-            </div>
+      {/* Main content */}
+      <div className="relative z-10 min-h-screen flex flex-col">
+        
+        {/* Navigation */}
+        <nav className="p-8 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-gradient-primary rounded-lg"></div>
+            <span className="text-white font-medium">AI University</span>
           </div>
+          <Button 
+            variant="ghost" 
+            className="text-slate-300 hover:text-white hover:bg-white/5"
+            onClick={() => navigate("/auth")}
+          >
+            Sign in
+          </Button>
+        </nav>
 
-          {/* Main Headline with modern typography */}
-          <div className="space-y-16 animate-fade-in" style={{
-          animationDelay: '0.2s'
-        }}>
-            <div className="space-y-8">
-              <h1 className="text-7xl md:text-9xl font-bold leading-[0.9] tracking-tight">
-                <span className="block mb-6">
-                  <span className="text-white">Excellence in </span>
-                </span>
-                <span className="block bg-gradient-gemini bg-clip-text text-transparent mb-6">education</span>
-                <span className="block text-white text-5xl md:text-6xl font-light">reimagined.</span>
+        {/* Hero Section */}
+        <div className="flex-1 flex items-center justify-center px-8">
+          <div className="max-w-6xl mx-auto text-center space-y-16">
+            
+            {/* Main headline */}
+            <div className="space-y-8 animate-fade-in">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 mb-8">
+                <Sparkles className="w-4 h-4 text-blue-400" />
+                <span className="text-sm text-slate-300">The future of education is here</span>
+              </div>
+
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-light leading-[0.9] tracking-tight">
+                <span className="block text-white/95 mb-4">Learn</span>
+                <span className="block bg-gradient-gemini bg-clip-text text-transparent mb-4">anything</span>
+                <span className="block text-white/95">with AI</span>
               </h1>
-            </div>
-            
-            <p className="text-2xl md:text-3xl text-slate-300 max-w-5xl mx-auto leading-relaxed font-light">
-              World-class education powered by AI tutoring, adaptive curricula, and personalized learning paths. 
-              Join thousands of students achieving their academic and professional goals.
-            </p>
-          </div>
 
-          {/* Enhanced CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center animate-fade-in" style={{
-          animationDelay: '0.4s'
-        }}>
-            {/* Primary Action - Premium Glass */}
-            <div className="relative group">
-              {/* Glow layers */}
-              <div className="absolute inset-0 bg-gradient-primary rounded-full blur-xl opacity-40 group-hover:opacity-60 transition-all duration-500"></div>
-              <div className="absolute inset-0 bg-white/[0.15] rounded-full blur-lg group-hover:bg-white/[0.25] transition-all duration-300"></div>
-              
-              {/* Glass layers */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.25] via-white/[0.05] to-white/[0.15] rounded-full"></div>
-              
-              {/* Specular highlights */}
-              <div className="absolute top-3 left-6 w-12 h-6 bg-white/[0.4] rounded-full blur-md"></div>
-              <div className="absolute bottom-4 right-8 w-8 h-4 bg-white/[0.2] rounded-full blur-sm"></div>
-              
-              <Button size="lg" className="relative text-xl px-20 py-10 h-auto bg-white/[0.12] backdrop-blur-[40px] hover:bg-white/[0.18] hover:scale-105 transition-all duration-500 rounded-full border border-white/[0.2] text-white font-semibold shadow-2xl group-hover:shadow-glow" onClick={() => navigate("/auth")}>
-                <BookOpen className="h-6 w-6 mr-4" />
-                Start Learning
-                <ArrowRight className="h-6 w-6 ml-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <p className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
+                Personalized education that adapts to you. World-class content, 
+                AI tutoring, and immersive learning experiences.
+              </p>
             </div>
-            
-            {/* Secondary Action - Subtle Glass */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-white/[0.08] rounded-full blur-lg group-hover:bg-white/[0.15] transition-all duration-300"></div>
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.15] via-transparent to-white/[0.08] rounded-full"></div>
-              <div className="absolute top-3 left-6 w-8 h-4 bg-white/[0.25] rounded-full blur-sm"></div>
-              
-              <Button size="lg" className="relative text-xl px-20 py-10 h-auto bg-white/[0.05] backdrop-blur-[40px] hover:bg-white/[0.10] hover:scale-105 transition-all duration-500 rounded-full border border-white/[0.15] text-white font-semibold shadow-xl" onClick={() => navigate("/auth")}>
-                <LogIn className="h-6 w-6 mr-4" />
-                Sign In
-              </Button>
-            </div>
-          </div>
 
-          {/* Modern Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-24 animate-fade-in" style={{
-          animationDelay: '0.6s'
-        }}>
-            {[{
-            stat: "100K+",
-            label: "Active Students",
-            gradient: "gradient-gemini",
-            delay: "0s"
-          }, {
-            stat: "96%",
-            label: "Success Rate",
-            gradient: "gradient-primary",
-            delay: "0.2s"
-          }, {
-            stat: "50+",
-            label: "Subject Areas",
-            gradient: "gradient-accent",
-            delay: "0.4s"
-          }].map((item, index) => <div key={index} className="relative group" style={{
-            animationDelay: item.delay
-          }}>
-                {/* Background glow */}
-                <div className={`absolute inset-0 bg-${item.gradient} rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-all duration-500`}></div>
+            {/* CTA */}
+            <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="relative inline-block group">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-primary rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
                 
-                {/* Glass card */}
-                <div className="relative p-12 bg-white/[0.06] backdrop-blur-[30px] rounded-3xl border border-white/[0.10] hover:border-white/[0.20] transition-all duration-500 group-hover:scale-105">
-                  {/* Subtle inner glow */}
-                  <div className="absolute top-4 left-6 w-16 h-8 bg-white/[0.10] rounded-full blur-lg"></div>
-                  
-                  <div className={`text-6xl font-bold bg-${item.gradient} bg-clip-text text-transparent mb-4`}>
-                    {item.stat}
-                  </div>
-                  <div className="text-slate-300 font-medium text-lg">{item.label}</div>
-                </div>
-              </div>)}
-          </div>
+                {/* Glass button */}
+                <Button 
+                  size="lg"
+                  className="relative px-12 py-6 h-auto text-lg bg-white/10 backdrop-blur-xl hover:bg-white/15 border border-white/20 hover:border-white/30 text-white font-medium transition-all duration-300 hover:scale-105 rounded-full"
+                  onClick={() => navigate("/auth")}
+                >
+                  <Play className="w-5 h-5 mr-3" />
+                  Start learning for free
+                  <ChevronRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+            </div>
 
-          {/* Modern Tagline */}
-          <div className="pt-24 animate-fade-in" style={{
-          animationDelay: '0.8s'
-        }}>
-            <div className="flex items-center justify-center gap-6 text-slate-400 font-light text-lg">
-              <span>Academic Excellence</span>
-              <div className="w-2 h-2 bg-gradient-primary rounded-full"></div>
-              <span>Proven Results</span>
-              <div className="w-2 h-2 bg-gradient-accent rounded-full"></div>
-              <span>Trusted Worldwide</span>
+            {/* Features grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-20 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              {[
+                {
+                  icon: Brain,
+                  title: "AI-Powered",
+                  description: "Personal AI tutor that adapts to your learning style"
+                },
+                {
+                  icon: Zap,
+                  title: "Instant Feedback",
+                  description: "Get immediate guidance and corrections as you learn"
+                },
+                {
+                  icon: Globe,
+                  title: "Global Access",
+                  description: "Learn from anywhere, at your own pace and schedule"
+                }
+              ].map((feature, index) => (
+                <div key={index} className="relative group">
+                  {/* Subtle glow */}
+                  <div className="absolute inset-0 bg-gradient-primary rounded-2xl blur-2xl opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+                  
+                  {/* Glass card */}
+                  <div className="relative p-8 bg-white/[0.02] backdrop-blur-xl rounded-2xl border border-white/[0.05] hover:border-white/10 transition-all duration-300 group-hover:scale-105">
+                    <feature.icon className="w-8 h-8 text-blue-400 mb-4 mx-auto" />
+                    <h3 className="text-white font-medium mb-2">{feature.title}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Stats */}
+            <div className="flex justify-center items-center gap-12 pt-16 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <div className="text-center">
+                <div className="text-2xl font-light text-white mb-1">50K+</div>
+                <div className="text-sm text-slate-500">Students</div>
+              </div>
+              <div className="w-px h-8 bg-white/10"></div>
+              <div className="text-center">
+                <div className="text-2xl font-light text-white mb-1">1000+</div>
+                <div className="text-sm text-slate-500">Courses</div>
+              </div>
+              <div className="w-px h-8 bg-white/10"></div>
+              <div className="text-center">
+                <div className="text-2xl font-light text-white mb-1">95%</div>
+                <div className="text-sm text-slate-500">Success Rate</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
