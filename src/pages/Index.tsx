@@ -64,27 +64,37 @@ const Index = () => {
             </p>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons with Liquid Glass Effect */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            <Button 
-              variant="hero" 
-              size="lg" 
-              className="text-lg px-16 py-8 h-auto bg-gradient-primary hover:shadow-glow hover:scale-105 transition-all duration-300 rounded-full border-0 text-white font-semibold"
-              onClick={() => navigate("/auth")}
-            >
-              Start Learning
-              <ArrowRight className="h-5 w-5 ml-3" />
-            </Button>
+            <div className="relative group">
+              {/* Primary Button - Liquid Glass */}
+              <div className="absolute inset-0 bg-white/[0.25] rounded-full blur-md group-hover:bg-white/[0.35] transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.4] via-transparent to-white/[0.15] rounded-full"></div>
+              <div className="absolute top-2 left-4 w-8 h-4 bg-white/[0.6] rounded-full blur-sm"></div>
+              <Button 
+                size="lg" 
+                className="relative text-lg px-16 py-8 h-auto bg-white/[0.2] backdrop-blur-[20px] hover:bg-white/[0.25] hover:scale-105 transition-all duration-300 rounded-full border border-white/[0.3] text-white font-semibold shadow-2xl"
+                onClick={() => navigate("/auth")}
+              >
+                Start Learning
+                <ArrowRight className="h-5 w-5 ml-3" />
+              </Button>
+            </div>
             
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="text-lg px-16 py-8 h-auto hover:scale-105 transition-all duration-300 rounded-full bg-white/5 backdrop-blur-sm border-white/20 text-foreground hover:bg-white/10"
-              onClick={() => navigate("/auth")}
-            >
-              <LogIn className="h-5 w-5 mr-3" />
-              Sign In
-            </Button>
+            <div className="relative group">
+              {/* Secondary Button - Liquid Glass */}
+              <div className="absolute inset-0 bg-white/[0.15] rounded-full blur-md group-hover:bg-white/[0.25] transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.25] via-transparent to-white/[0.1] rounded-full"></div>
+              <div className="absolute top-2 left-4 w-6 h-3 bg-white/[0.4] rounded-full blur-sm"></div>
+              <Button 
+                size="lg" 
+                className="relative text-lg px-16 py-8 h-auto bg-white/[0.1] backdrop-blur-[20px] hover:bg-white/[0.15] hover:scale-105 transition-all duration-300 rounded-full border border-white/[0.2] text-white font-semibold shadow-2xl"
+                onClick={() => navigate("/auth")}
+              >
+                <LogIn className="h-5 w-5 mr-3" />
+                Sign In
+              </Button>
+            </div>
           </div>
 
           {/* Stats with Cards */}
