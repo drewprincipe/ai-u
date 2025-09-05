@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Brain, Sparkles, ArrowRight, LogIn } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       {/* Animated Background */}
@@ -48,6 +50,7 @@ const Index = () => {
               variant="hero" 
               size="lg" 
               className="text-lg px-8 py-4 h-auto hover-scale transition-all duration-300"
+              onClick={() => navigate("/auth")}
             >
               <Sparkles className="h-6 w-6 mr-3" />
               Start Your Journey
@@ -58,6 +61,7 @@ const Index = () => {
               variant="hero-outline" 
               size="lg" 
               className="text-lg px-8 py-4 h-auto hover-scale transition-all duration-300"
+              onClick={() => navigate("/auth")}
             >
               <LogIn className="h-5 w-5 mr-3" />
               Sign In
