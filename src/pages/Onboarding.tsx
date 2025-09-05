@@ -27,6 +27,7 @@ interface OnboardingData {
   fullName: string;
   age: string;
   userType: UserType;
+  topicsOfInterest: string[];
   preferredLearningStyle: string;
   timeline: string;
 }
@@ -38,12 +39,13 @@ const Onboarding = () => {
   const [authLoading, setAuthLoading] = useState(true);
   const { toast } = useToast();
   const navigate = useNavigate();
-  const totalSteps = 4;
+  const totalSteps = 5;
 
   const [data, setData] = useState<OnboardingData>({
     fullName: "",
     age: "",
     userType: "lifelong-learner",
+    topicsOfInterest: [],
     preferredLearningStyle: "",
     timeline: ""
   });
@@ -111,7 +113,7 @@ const Onboarding = () => {
         learning_goals: "To be determined by AI", 
         time_commitment: "To be determined by AI",
         preferred_learning_style: data.preferredLearningStyle,
-        subjects: [],
+        subjects: data.topicsOfInterest,
         timeline: data.timeline,
         onboarding_completed: true,
       };
@@ -146,6 +148,30 @@ const Onboarding = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const topicsOptions = [
+    "Computer Science & Programming",
+    "Data Science & AI",
+    "Mathematics", 
+    "Business & Finance",
+    "Science (Physics, Chemistry, Biology)",
+    "Engineering",
+    "Arts & Design",
+    "Language Learning",
+    "Marketing & Social Media",
+    "Personal Development",
+    "Health & Medicine",
+    "History & Philosophy"
+  ];
+
+  const handleTopicToggle = (topic: string) => {
+    setData(prev => ({
+      ...prev,
+      topicsOfInterest: prev.topicsOfInterest.includes(topic)
+        ? prev.topicsOfInterest.filter(t => t !== topic)
+        : [...prev.topicsOfInterest, topic]
+    }));
   };
 
   const userTypeOptions = [
@@ -256,6 +282,50 @@ const Onboarding = () => {
           <div className="space-y-6">
             <div className="text-center space-y-2">
               <BookOpen className="h-12 w-12 text-primary mx-auto" />
+              <h2 className="text-2xl font-bold">What topics interest you?</h2>
+              <p className="text-muted-foreground">Select all that apply - we'll use this to recommend courses</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {topicsOptions.map((topic) => (
+                <div
+                  key={topic}
+                  className={`p-4 border rounded-lg cursor-pointer transition-colors ${
+                    data.topicsOfInterest.includes(topic)
+                      ? 'border-primary bg-primary/5'
+                      : 'border-border hover:bg-muted/50'
+                  }`}
+                  onClick={() => handleTopicToggle(topic)}
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className={`w-5 h-5 border-2 rounded flex items-center justify-center ${
+                      data.topicsOfInterest.includes(topic)
+                        ? 'border-primary bg-primary'
+                        : 'border-border'
+                    }`}>
+                      {data.topicsOfInterest.includes(topic) && (
+                        <div className="w-2 h-2 bg-white rounded-sm"></div>
+                      )}
+                    </div>
+                    <Label className="cursor-pointer text-sm font-medium">
+                      {topic}
+                    </Label>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <p className="text-sm text-muted-foreground text-center">
+              Selected {data.topicsOfInterest.length} topic{data.topicsOfInterest.length !== 1 ? 's' : ''}
+            </p>
+          </div>
+        );
+
+      case 4:
+        return (
+          <div className="space-y-6">
+            <div className="text-center space-y-2">
+              <Clock className="h-12 w-12 text-primary mx-auto" />
               <h2 className="text-2xl font-bold">How do you prefer to learn?</h2>
               <p className="text-muted-foreground">Help us customize your experience</p>
             </div>
@@ -290,7 +360,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 4:
+      case 5:
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
@@ -352,8 +422,10 @@ const Onboarding = () => {
       case 2:
         return data.userType;
       case 3:
-        return data.preferredLearningStyle;
+        return data.topicsOfInterest.length > 0;
       case 4:
+        return data.preferredLearningStyle;
+      case 5:
         return data.timeline;
       default:
         return true;
