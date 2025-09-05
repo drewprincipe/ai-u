@@ -45,7 +45,7 @@ const Index = () => {
 
           {/* Main Headline */}
           <div className="space-y-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <h1 className="font-display text-6xl md:text-8xl font-bold leading-tight tracking-tight">
+            <h1 className="text-6xl md:text-8xl font-bold leading-tight tracking-tight">
               <span className="block mb-4">
                 <span className="text-foreground">Learn without </span>
                 <span className="bg-gradient-primary bg-clip-text text-transparent">limits</span>
