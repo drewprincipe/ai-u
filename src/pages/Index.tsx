@@ -1,44 +1,62 @@
 import { Button } from "@/components/ui/button";
-import { Brain, Sparkles, ArrowRight, LogIn } from "lucide-react";
+import { Sparkles, ArrowRight, LogIn } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Clean Gradient Background */}
-      <div className="fixed inset-0 bg-gradient-hero opacity-10"></div>
+      {/* Gemini-style Background */}
       <div className="fixed inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-primary rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-secondary rounded-full blur-3xl opacity-15 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute inset-0 bg-gradient-gemini opacity-5"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-primary rounded-full blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-secondary rounded-full blur-3xl opacity-15 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-accent rounded-full blur-3xl opacity-10 animate-pulse" style={{ animationDelay: '4s' }}></div>
+      </div>
+
+      {/* Floating Geometric Elements */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-gradient-primary rounded-full animate-gentle-float opacity-40"></div>
+        <div className="absolute top-2/3 right-1/4 w-3 h-3 bg-gradient-secondary rounded-full animate-gentle-float opacity-30" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 bg-gradient-accent rounded-full animate-gentle-float opacity-50" style={{ animationDelay: '3s' }}></div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4">
-        <div className="text-center space-y-12 max-w-5xl mx-auto">
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-12">
+        <div className="text-center space-y-16 max-w-6xl mx-auto">
           
           {/* Brand */}
           <div className="animate-fade-in">
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="p-4 bg-gradient-primary rounded-2xl shadow-glow animate-gentle-float">
-                <Brain className="h-10 w-10 text-primary-foreground" />
+            <div className="inline-flex items-center gap-4 mb-12">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-gemini rounded-3xl blur-lg opacity-60"></div>
+                <div className="relative p-6 bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20">
+                  <Sparkles className="h-12 w-12 text-white" />
+                </div>
               </div>
-              <span className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">AI University</span>
+              <span className="text-5xl font-bold bg-gradient-gemini bg-clip-text text-transparent">
+                AI University
+              </span>
             </div>
           </div>
 
           {/* Main Headline */}
-          <div className="space-y-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <h1 className="text-7xl md:text-8xl font-bold leading-tight tracking-tight">
-              <span className="text-foreground">Learn</span>
-              <span className="bg-gradient-primary bg-clip-text text-transparent"> Anything</span>
-              <br />
-              <span className="text-foreground">Master</span>
-              <span className="bg-gradient-secondary bg-clip-text text-transparent"> Everything</span>
+          <div className="space-y-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <h1 className="text-6xl md:text-8xl font-bold leading-tight tracking-tight">
+              <span className="block mb-4">
+                <span className="bg-gradient-primary bg-clip-text text-transparent">Learn</span>
+                <span className="text-foreground"> without </span>
+                <span className="bg-gradient-secondary bg-clip-text text-transparent">limits</span>
+              </span>
+              <span className="block">
+                <span className="bg-gradient-accent bg-clip-text text-transparent">Powered by </span>
+                <span className="bg-gradient-gemini bg-clip-text text-transparent">AI</span>
+              </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
-              Your personal AI-powered university that adapts to your goals, learns your style, and accelerates your success through cutting-edge technology.
+              Experience the future of education with personalized AI tutoring, 
+              adaptive curricula, and immersive learning that evolves with you.
             </p>
           </div>
 
@@ -47,18 +65,17 @@ const Index = () => {
             <Button 
               variant="hero" 
               size="lg" 
-              className="text-lg px-12 py-6 h-auto shadow-glow hover:scale-105 transition-all duration-300"
+              className="text-lg px-16 py-8 h-auto bg-gradient-gemini hover:bg-gradient-primary shadow-glow hover:scale-105 transition-all duration-300 rounded-full border-0 text-white font-semibold"
               onClick={() => navigate("/auth")}
             >
-              <Sparkles className="h-6 w-6 mr-3" />
-              Start Your Journey
+              Start Learning
               <ArrowRight className="h-5 w-5 ml-3" />
             </Button>
             
             <Button 
-              variant="hero-outline" 
+              variant="outline" 
               size="lg" 
-              className="text-lg px-12 py-6 h-auto hover:scale-105 transition-all duration-300"
+              className="text-lg px-16 py-8 h-auto hover:scale-105 transition-all duration-300 rounded-full bg-white/5 backdrop-blur-sm border-white/20 text-foreground hover:bg-white/10"
               onClick={() => navigate("/auth")}
             >
               <LogIn className="h-5 w-5 mr-3" />
@@ -66,26 +83,35 @@ const Index = () => {
             </Button>
           </div>
 
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-16 pt-16 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <div className="text-center">
-              <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">50,000+</div>
-              <div className="text-muted-foreground font-medium">Active Learners</div>
+          {/* Stats with Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-16 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity"></div>
+              <div className="relative p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 hover:border-white/20 transition-all">
+                <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-3">1M+</div>
+                <div className="text-muted-foreground font-medium">Students Worldwide</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">4.9/5</div>
-              <div className="text-muted-foreground font-medium">Average Rating</div>
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-secondary rounded-3xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity"></div>
+              <div className="relative p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 hover:border-white/20 transition-all">
+                <div className="text-4xl font-bold bg-gradient-secondary bg-clip-text text-transparent mb-3">4.9★</div>
+                <div className="text-muted-foreground font-medium">Average Rating</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">100+</div>
-              <div className="text-muted-foreground font-medium">Subjects</div>
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-accent rounded-3xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity"></div>
+              <div className="relative p-8 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 hover:border-white/20 transition-all">
+                <div className="text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent mb-3">500+</div>
+                <div className="text-muted-foreground font-medium">Courses Available</div>
+              </div>
             </div>
           </div>
 
-          {/* Footer */}
+          {/* Tagline */}
           <div className="pt-16 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <p className="text-muted-foreground font-light">
-              Welcome to the future of learning • Est. 2024
+            <p className="text-muted-foreground font-light text-lg">
+              Where intelligence meets imagination • The future of learning is here
             </p>
           </div>
         </div>
