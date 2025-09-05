@@ -38,9 +38,6 @@ const Index = () => {
                   <img src={uLogo} alt="U Logo" className="h-12 w-12 object-contain" />
                 </div>
               </div>
-              <span className="text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                U
-              </span>
             </div>
           </div>
 
