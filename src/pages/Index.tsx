@@ -61,10 +61,14 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-primary rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                 
                 {/* Bright glass button */}
-                <Button size="lg" className="relative px-12 py-6 h-auto text-lg bg-white/80 backdrop-blur-xl hover:bg-white/90 border border-blue-200/50 hover:border-blue-300/60 text-slate-900 font-semibold transition-all duration-300 hover:scale-105 rounded-full shadow-xl hover:shadow-2xl" onClick={() => navigate("/auth")}>
+                <Button size="lg" className="relative px-12 py-6 h-auto text-lg bg-white/80 backdrop-blur-xl hover:bg-white/90 border border-blue-200/50 hover:border-blue-300/60 text-slate-900 font-semibold transition-all duration-300 hover:scale-105 rounded-full shadow-xl hover:shadow-2xl mr-4" onClick={() => navigate("/auth")}>
                   <Play className="w-5 h-5 mr-3" />
                   Start learning for free
                   <ChevronRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                
+                <Button size="lg" variant="outline" className="relative px-8 py-6 h-auto text-lg bg-white/60 backdrop-blur-xl hover:bg-white/80 border border-blue-200/50 hover:border-blue-300/60 text-slate-900 font-semibold transition-all duration-300 hover:scale-105 rounded-full shadow-lg" onClick={() => navigate("/course/data-science-fundamentals")}>
+                  View Demo Course
                 </Button>
               </div>
             </div>

@@ -63,8 +63,13 @@ export default function Course() {
         <p className="text-sm text-muted-foreground mb-4">
           Available course: data-science-fundamentals
         </p>
-        <Button onClick={() => window.location.href = '/course/data-science-fundamentals'}>
-          Try Demo Course
+        <p className="text-xs text-muted-foreground mb-4">
+          Current URL courseId: "{courseId}" (should not be ":courseId")
+        </p>
+        <Button asChild>
+          <a href="/course/data-science-fundamentals">
+            Try Demo Course
+          </a>
         </Button>
       </div>
     );
