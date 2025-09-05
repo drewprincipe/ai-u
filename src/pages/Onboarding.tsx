@@ -235,17 +235,12 @@ const Onboarding = () => {
     switch (step) {
       case 1:
         return (
-            <div className="space-y-6">
-              <div className="text-center space-y-4">
-                <div className="relative mx-auto w-fit">
-                  <div className="absolute inset-0 bg-gradient-gemini rounded-full blur-xl opacity-40"></div>
-                  <div className="relative p-4 bg-white/[0.08] backdrop-blur-[20px] rounded-full border border-white/[0.15]">
-                    <User className="h-8 w-8 text-white" />
-                  </div>
-                </div>
-                <h2 className="text-2xl font-bold text-white">Tell us about yourself</h2>
-                <p className="text-slate-300">Let's get to know you better</p>
-              </div>
+          <div className="space-y-6">
+            <div className="text-center space-y-2">
+              <User className="h-12 w-12 text-primary mx-auto" />
+              <h2 className="text-2xl font-bold">Tell us about yourself</h2>
+              <p className="text-muted-foreground">Let's get to know you better</p>
+            </div>
             
             <div className="space-y-4">
               <div>
@@ -432,44 +427,20 @@ const Onboarding = () => {
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-navy-900 to-slate-900 p-4">
-      {/* Background orbs */}
-      <div className="fixed inset-0">
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-gemini rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-32 right-1/4 w-80 h-80 bg-gradient-primary rounded-full blur-2xl opacity-15 gentle-float"></div>
-      </div>
-
-      {/* Glass overlay */}
-      <div className="fixed inset-0">
-        <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-[40px]"></div>
-      </div>
-
-      <div className="relative z-10 max-w-2xl mx-auto">
-          <div className="mb-8 text-center">
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-gemini rounded-xl blur-lg opacity-60"></div>
-                  <div className="relative p-3 bg-white/[0.08] backdrop-blur-[30px] rounded-xl border border-white/[0.15]">
-                    <GraduationCap className="h-6 w-6 text-white" />
-                  </div>
-                </div>
-                <h1 className="text-3xl font-bold text-white">AI University</h1>
-              </div>
-              <div className="text-sm text-slate-400 bg-white/[0.06] backdrop-blur-[20px] px-3 py-2 rounded-full border border-white/[0.10]">
-                Step {step} of {totalSteps}
-              </div>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-white/[0.05] backdrop-blur-[20px] rounded-2xl"></div>
-              <Progress value={(step / totalSteps) * 100} className="relative w-full h-3 bg-white/[0.10] border border-white/[0.15]" />
+    <div className="min-h-screen bg-background p-4">
+      <div className="max-w-2xl mx-auto">
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-3xl font-bold">Welcome to AI University</h1>
+            <div className="text-sm text-muted-foreground">
+              Step {step} of {totalSteps}
             </div>
           </div>
+          <Progress value={(step / totalSteps) * 100} className="w-full" />
+        </div>
 
-          <div className="relative">
-            <div className="absolute inset-0 bg-white/[0.06] backdrop-blur-[30px] rounded-3xl border border-white/[0.10]"></div>
-            <Card className="relative bg-transparent border-0 shadow-none">
-              <CardContent className="p-8">
+        <Card>
+          <CardContent className="p-8">
             {renderStep()}
             
             <div className="flex justify-between mt-8">
@@ -502,7 +473,6 @@ const Onboarding = () => {
             </div>
           </CardContent>
         </Card>
-        </div>
       </div>
     </div>
   );
