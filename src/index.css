@@ -140,25 +140,8 @@ All colors MUST be HSL.
   }
 
   /* Academic notebook styles */
-  .notebook-hand {
-    font-family: 'Caveat', cursive;
-    font-weight: 400;
-  }
-
-  .notebook-hand-bold {
-    font-family: 'Caveat', cursive;
-    font-weight: 600;
-  }
-
-  .typewriter {
-    font-family: 'Courier Prime', monospace;
-  }
-
-  .code-style {
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  /* Subtle academic animations */
+  
+  /* Subtle modern animations */
   @keyframes gentle-float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-3px); }

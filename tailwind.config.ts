@@ -19,9 +19,6 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'caveat': ['Caveat', 'cursive'],
-				'courier': ['Courier Prime', 'monospace'],
-				'jetbrains': ['JetBrains Mono', 'monospace'],
 				'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 			},
 			colors: {
