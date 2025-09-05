@@ -40,7 +40,7 @@ const Index = () => {
                   <Sparkles className="h-12 w-12 text-white" />
                 </div>
               </div>
-              <span className="text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <span className="text-5xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
                 AI University
               </span>
             </div>
@@ -50,11 +50,11 @@ const Index = () => {
           <div className="space-y-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <h1 className="text-6xl md:text-8xl font-bold leading-tight tracking-tight">
               <span className="block mb-4">
-                <span className="text-foreground">Learn without </span>
-                <span className="bg-gradient-primary bg-clip-text text-transparent">limits</span>
+                <span className="text-white">Learn without </span>
+                <span className="bg-gradient-to-r from-blue-100 via-white to-blue-200 bg-clip-text text-transparent">limits</span>
               </span>
-              <span className="block text-foreground">
-                Powered by <span className="text-primary">AI</span>
+              <span className="block text-white">
+                Powered by <span className="text-blue-100">AI</span>
               </span>
             </h1>
             
