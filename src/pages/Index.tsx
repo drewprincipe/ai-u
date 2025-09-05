@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, LogIn } from "lucide-react";
+import { Sparkles, ArrowRight, LogIn } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import uLogo from "@/assets/u-logo.png";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -35,9 +34,12 @@ const Index = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-lg opacity-60"></div>
                 <div className="relative p-6 bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20">
-                  <img src={uLogo} alt="U Logo" className="h-12 w-12 object-contain" />
+                  <Sparkles className="h-12 w-12 text-white" />
                 </div>
               </div>
+              <span className="text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                AI University
+              </span>
             </div>
           </div>
 
