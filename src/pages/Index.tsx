@@ -5,13 +5,26 @@ import { useNavigate } from "react-router-dom";
 const Index = () => {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gray-200">
-      {/* Apple-style frosted glass background */}
-      <div className="fixed inset-0 bg-white/10 backdrop-blur-md">
-        {/* Subtle neutral depth elements */}
-        <div className="absolute top-20 left-20 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-white/3 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-white/2 rounded-full blur-3xl"></div>
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600">
+      {/* Liquid glass background layers */}
+      <div className="fixed inset-0">
+        {/* Base glass layer with heavy blur */}
+        <div className="absolute inset-0 bg-white/[0.15] backdrop-blur-[20px]"></div>
+        
+        {/* Secondary glass layer for depth */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.25] via-white/[0.05] to-white/[0.20] backdrop-blur-[12px]"></div>
+        
+        {/* Depth elements with liquid glass effect */}
+        <div className="absolute top-20 left-20 w-96 h-96 bg-white/[0.12] rounded-full blur-2xl backdrop-blur-sm"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-white/[0.08] rounded-full blur-2xl backdrop-blur-sm"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-white/[0.06] rounded-full blur-3xl backdrop-blur-sm"></div>
+        
+        {/* Specular highlights for liquid glass effect */}
+        <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-white/[0.3] rounded-full blur-xl"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-white/[0.25] rounded-full blur-lg"></div>
+        
+        {/* Final translucent overlay */}
+        <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-[8px]"></div>
       </div>
 
       {/* Main Content */}
