@@ -38,6 +38,8 @@ interface OnboardingData {
 const Onboarding = () => {
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [authLoading, setAuthLoading] = useState(true);
   const { toast } = useToast();
   const navigate = useNavigate();
   const totalSteps = 5;
@@ -54,11 +56,33 @@ const Onboarding = () => {
     timeline: ""
   });
 
+  // Check authentication on component mount
+  useEffect(() => {
+    const checkAuth = async () => {
+      console.log("Checking authentication status...");
+      const { data: { user } } = await supabase.auth.getUser();
+      console.log("Current user:", user);
+      
+      if (!user) {
+        console.log("No user found, redirecting to auth");
+        navigate("/auth");
+        return;
+      }
+      
+      setIsAuthenticated(true);
+      setAuthLoading(false);
+    };
+    
+    checkAuth();
+  }, [navigate]);
+
   const updateData = (field: keyof OnboardingData, value: any) => {
+    console.log(`Updating ${field}:`, value);
     setData(prev => ({ ...prev, [field]: value }));
   };
 
   const nextStep = () => {
+    console.log(`Moving from step ${step} to step ${step + 1}`);
     if (step < totalSteps) setStep(step + 1);
   };
 
@@ -67,40 +91,53 @@ const Onboarding = () => {
   };
 
   const handleComplete = async () => {
+    console.log("Starting onboarding completion...");
+    console.log("Current form data:", data);
     setIsLoading(true);
     
     try {
       const { data: { user } } = await supabase.auth.getUser();
+      console.log("User for onboarding:", user);
       
       if (!user) {
+        console.log("No user found during completion");
         toast({
           title: "Authentication Required",
           description: "Please sign in to complete onboarding.",
           variant: "destructive",
         });
+        navigate("/auth");
         return;
       }
 
+      const profileData = {
+        user_id: user.id,
+        full_name: data.fullName,
+        age: parseInt(data.age),
+        user_type: data.userType,
+        current_situation: data.currentSituation,
+        learning_goals: data.learningGoals,
+        time_commitment: data.timeCommitment,
+        preferred_learning_style: data.preferredLearningStyle,
+        subjects: data.subjects,
+        timeline: data.timeline,
+        onboarding_completed: true,
+      };
+      
+      console.log("Inserting profile data:", profileData);
+
       // Store onboarding data in Supabase
-      const { error } = await supabase
+      const { error, data: insertResult } = await supabase
         .from('user_profiles')
-        .upsert({
-          user_id: user.id,
-          full_name: data.fullName,
-          age: parseInt(data.age),
-          user_type: data.userType,
-          current_situation: data.currentSituation,
-          learning_goals: data.learningGoals,
-          time_commitment: data.timeCommitment,
-          preferred_learning_style: data.preferredLearningStyle,
-          subjects: data.subjects,
-          timeline: data.timeline,
-          onboarding_completed: true,
-          created_at: new Date().toISOString(),
-        });
+        .upsert(profileData);
 
-      if (error) throw error;
+      console.log("Insert result:", insertResult);
+      if (error) {
+        console.error("Database error:", error);
+        throw error;
+      }
 
+      console.log("Onboarding completed successfully");
       toast({
         title: "Welcome to AI University! 🎉",
         description: "Your personalized learning journey is ready to begin.",
@@ -393,6 +430,21 @@ const Onboarding = () => {
         return true;
     }
   };
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return null; // Will redirect to auth
+  }
 
   return (
     <div className="min-h-screen bg-background p-4">
