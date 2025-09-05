@@ -139,49 +139,47 @@ All colors MUST be HSL.
     overflow: hidden;
   }
 
-  /* Handwritten/Educational styles */
-  .handwritten {
-    font-family: 'Kalam', cursive;
+  /* Academic notebook styles */
+  .notebook-hand {
+    font-family: 'Caveat', cursive;
+    font-weight: 400;
   }
 
-  .handwritten-bold {
-    font-family: 'Kalam', cursive;
-    font-weight: 700;
+  .notebook-hand-bold {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
   }
 
-  .doodle-text {
-    font-family: 'Architects Daughter', cursive;
+  .typewriter {
+    font-family: 'Courier Prime', monospace;
   }
 
-  .sketch-text {
-    font-family: 'Patrick Hand', cursive;
+  .code-style {
+    font-family: 'JetBrains Mono', monospace;
   }
 
-  /* Playful animations */
-  @keyframes wiggle {
-    0%, 100% { transform: rotate(-1deg); }
-    50% { transform: rotate(1deg); }
-  }
-
-  @keyframes bounce-soft {
+  /* Subtle academic animations */
+  @keyframes gentle-float {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
+    50% { transform: translateY(-3px); }
   }
 
-  @keyframes draw-line {
-    0% { stroke-dasharray: 0 100; }
-    100% { stroke-dasharray: 100 0; }
+  @keyframes fade-in-up {
+    0% { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% { 
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  .wiggle {
-    animation: wiggle 3s ease-in-out infinite;
+  .gentle-float {
+    animation: gentle-float 4s ease-in-out infinite;
   }
 
-  .bounce-soft {
-    animation: bounce-soft 2s ease-in-out infinite;
-  }
-
-  .draw-animation {
-    animation: draw-line 2s ease-in-out forwards;
+  .academic-fade-in {
+    animation: fade-in-up 0.6s ease-out forwards;
   }
 }

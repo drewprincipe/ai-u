@@ -19,9 +19,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'kalam': ['Kalam', 'cursive'],
-				'architects': ['Architects Daughter', 'cursive'],
-				'patrick': ['Patrick Hand', 'cursive'],
+				'caveat': ['Caveat', 'cursive'],
+				'courier': ['Courier Prime', 'monospace'],
+				'jetbrains': ['JetBrains Mono', 'monospace'],
 				'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 			},
 			colors: {
@@ -128,13 +128,9 @@ export default {
 						opacity: '1'
 					}
 				},
-				'wiggle': {
-					'0%, 100%': { transform: 'rotate(-1deg)' },
-					'50%': { transform: 'rotate(1deg)' }
-				},
-				'bounce-soft': {
+				'gentle-float': {
 					'0%, 100%': { transform: 'translateY(0px)' },
-					'50%': { transform: 'translateY(-5px)' }
+					'50%': { transform: 'translateY(-3px)' }
 				}
 			},
 			animation: {
@@ -142,8 +138,7 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
 				'scale-in': 'scale-in 0.2s ease-out',
-				'wiggle': 'wiggle 3s ease-in-out infinite',
-				'bounce-soft': 'bounce-soft 2s ease-in-out infinite'
+				'gentle-float': 'gentle-float 4s ease-in-out infinite'
 			}
 		}
 	},
