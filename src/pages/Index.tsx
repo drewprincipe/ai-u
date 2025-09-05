@@ -9,13 +9,14 @@ const Index = () => {
       {/* Apple-style frosted glass background */}
       <div className="fixed inset-0">
         {/* Subtle neutral depth elements */}
-        <div className="absolute top-20 left-20 w-96 h-96 bg-white/3 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-white/2 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-white/1 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-96 h-96 bg-white/4 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-white/3 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-white/2 rounded-full blur-3xl"></div>
         
-        {/* Apple-style frosted glass overlay */}
-        <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-[2px]"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-white/[0.02] to-white/[0.08] backdrop-blur-[1px]"></div>
+        {/* Heavy frosted glass overlay */}
+        <div className="absolute inset-0 bg-white/[0.05] backdrop-blur-[8px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.12] via-white/[0.04] to-white/[0.12] backdrop-blur-[4px]"></div>
+        <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-[12px]"></div>
       </div>
 
       {/* Main Content */}
