@@ -9,6 +9,8 @@ export interface Course {
   rating: number;
   students: number;
   price: string;
+  department: string;
+  tags: string[];
   modules: CourseModule[];
   totalLessons: number;
   totalAssessments: number;
@@ -75,6 +77,8 @@ export const mockCourse: Course = {
   rating: 4.8,
   students: 15420,
   price: "Free",
+  department: "Data Science",
+  tags: ["Python", "Statistics", "Machine Learning", "Data Analysis", "Visualization"],
   totalLessons: 24,
   totalAssessments: 8,
   totalAssignments: 6,
@@ -347,13 +351,207 @@ export const mockCourse: Course = {
   ]
 };
 
+export const mockCourses: Course[] = [
+  mockCourse,
+  {
+    id: "python-programming",
+    title: "Complete Python Programming",
+    description: "Learn Python from scratch to advanced concepts. Perfect for beginners and those looking to strengthen their programming foundation.",
+    imageUrl: "/src/assets/course-python.jpg",
+    instructor: "Mark Johnson",
+    duration: "8 weeks",
+    level: "Beginner",
+    rating: 4.7,
+    students: 28340,
+    price: "Free",
+    department: "Programming",
+    tags: ["Python", "Programming", "Basics", "Syntax", "Projects"],
+    totalLessons: 16,
+    totalAssessments: 6,
+    totalAssignments: 4,
+    modules: []
+  },
+  {
+    id: "web-development-bootcamp",
+    title: "Full Stack Web Development",
+    description: "Build modern web applications using React, Node.js, and databases. Create real-world projects from frontend to backend.",
+    imageUrl: "/src/assets/hero-education.jpg",
+    instructor: "Lisa Rodriguez",
+    duration: "16 weeks",
+    level: "Intermediate",
+    rating: 4.9,
+    students: 12580,
+    price: "$299",
+    department: "Web Development",
+    tags: ["React", "Node.js", "JavaScript", "Full Stack", "Database"],
+    totalLessons: 32,
+    totalAssessments: 12,
+    totalAssignments: 8,
+    modules: []
+  },
+  {
+    id: "machine-learning-advanced",
+    title: "Advanced Machine Learning",
+    description: "Deep dive into advanced ML algorithms, neural networks, and AI applications. Includes hands-on projects with real datasets.",
+    imageUrl: "/src/assets/course-data-science.jpg",
+    instructor: "Dr. Alex Kumar",
+    duration: "14 weeks",
+    level: "Advanced",
+    rating: 4.8,
+    students: 8920,
+    price: "$199",
+    department: "Data Science",
+    tags: ["Machine Learning", "Neural Networks", "Deep Learning", "AI", "TensorFlow"],
+    totalLessons: 28,
+    totalAssessments: 10,
+    totalAssignments: 6,
+    modules: []
+  },
+  {
+    id: "business-analytics",
+    title: "Business Analytics & Intelligence",
+    description: "Learn to analyze business data, create dashboards, and make data-driven decisions using modern BI tools.",
+    imageUrl: "/src/assets/hero-education.jpg",
+    instructor: "Jennifer Walsh",
+    duration: "10 weeks",
+    level: "Intermediate",
+    rating: 4.6,
+    students: 15670,
+    price: "$149",
+    department: "Business",
+    tags: ["Analytics", "Business Intelligence", "Dashboards", "Excel", "Tableau"],
+    totalLessons: 20,
+    totalAssessments: 8,
+    totalAssignments: 5,
+    modules: []
+  },
+  {
+    id: "cybersecurity-fundamentals",
+    title: "Cybersecurity Fundamentals",
+    description: "Protect digital assets and understand security threats. Learn ethical hacking, network security, and risk management.",
+    imageUrl: "/src/assets/course-python.jpg",
+    instructor: "Robert Kim",
+    duration: "12 weeks",
+    level: "Beginner",
+    rating: 4.7,
+    students: 9850,
+    price: "$99",
+    department: "Cybersecurity",
+    tags: ["Security", "Network", "Ethical Hacking", "Risk Management", "Compliance"],
+    totalLessons: 24,
+    totalAssessments: 9,
+    totalAssignments: 6,
+    modules: []
+  },
+  {
+    id: "mobile-app-development",
+    title: "Mobile App Development with React Native",
+    description: "Build cross-platform mobile applications for iOS and Android using React Native and modern development tools.",
+    imageUrl: "/src/assets/hero-education.jpg",
+    instructor: "David Park",
+    duration: "10 weeks",
+    level: "Intermediate",
+    rating: 4.8,
+    students: 11240,
+    price: "$179",
+    department: "Mobile Development",
+    tags: ["React Native", "Mobile", "iOS", "Android", "Cross-platform"],
+    totalLessons: 22,
+    totalAssessments: 8,
+    totalAssignments: 5,
+    modules: []
+  },
+  {
+    id: "digital-marketing",
+    title: "Digital Marketing Mastery",
+    description: "Master SEO, social media marketing, content strategy, and analytics to grow your online presence and business.",
+    imageUrl: "/src/assets/course-data-science.jpg",
+    instructor: "Emma Thompson",
+    duration: "8 weeks",
+    level: "Beginner",
+    rating: 4.5,
+    students: 18990,
+    price: "$89",
+    department: "Marketing",
+    tags: ["SEO", "Social Media", "Content Marketing", "Analytics", "Strategy"],
+    totalLessons: 16,
+    totalAssessments: 6,
+    totalAssignments: 4,
+    modules: []
+  },
+  {
+    id: "cloud-computing-aws",
+    title: "AWS Cloud Computing",
+    description: "Learn Amazon Web Services from basics to advanced. Deploy scalable applications and master cloud architecture.",
+    imageUrl: "/src/assets/course-python.jpg",
+    instructor: "Michael Chang",
+    duration: "12 weeks",
+    level: "Intermediate",
+    rating: 4.7,
+    students: 13450,
+    price: "$199",
+    department: "Cloud Computing",
+    tags: ["AWS", "Cloud", "DevOps", "Infrastructure", "Serverless"],
+    totalLessons: 26,
+    totalAssessments: 10,
+    totalAssignments: 7,
+    modules: []
+  }
+];
+
+export const departments = [
+  "All Departments",
+  "Data Science",
+  "Programming", 
+  "Web Development",
+  "Mobile Development",
+  "Business",
+  "Cybersecurity",
+  "Marketing",
+  "Cloud Computing"
+];
+
 export async function getCourse(courseId: string): Promise<Course> {
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 800));
   
-  if (courseId !== mockCourse.id) {
+  const course = mockCourses.find(c => c.id === courseId);
+  if (!course) {
     throw new Error('Course not found');
   }
   
-  return mockCourse;
+  return course;
+}
+
+export async function getAllCourses(): Promise<Course[]> {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 500));
+  return mockCourses;
+}
+
+export async function searchCourses(query: string, department?: string): Promise<Course[]> {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 300));
+  
+  let filteredCourses = mockCourses;
+  
+  // Filter by department
+  if (department && department !== "All Departments") {
+    filteredCourses = filteredCourses.filter(course => 
+      course.department === department
+    );
+  }
+  
+  // Filter by search query
+  if (query.trim()) {
+    const searchTerm = query.toLowerCase();
+    filteredCourses = filteredCourses.filter(course =>
+      course.title.toLowerCase().includes(searchTerm) ||
+      course.description.toLowerCase().includes(searchTerm) ||
+      course.instructor.toLowerCase().includes(searchTerm) ||
+      course.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+    );
+  }
+  
+  return filteredCourses;
 }

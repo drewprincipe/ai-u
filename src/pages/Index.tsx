@@ -24,9 +24,14 @@ const Index = () => {
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 rounded-lg shadow-lg"></div>
             <span className="text-slate-900 font-bold text-lg bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">AI University</span>
           </div>
-          <Button variant="ghost" className="text-slate-700 hover:text-slate-900 hover:bg-black/5 font-semibold" onClick={() => navigate("/auth")}>
-            Sign in
-          </Button>
+          <div className="flex items-center gap-4">
+            <Button variant="ghost" className="text-slate-700 hover:text-slate-900 hover:bg-black/5 font-semibold" onClick={() => navigate("/courses")}>
+              Browse Courses
+            </Button>
+            <Button variant="ghost" className="text-slate-700 hover:text-slate-900 hover:bg-black/5 font-semibold" onClick={() => navigate("/auth")}>
+              Sign in
+            </Button>
+          </div>
         </nav>
 
         {/* Hero Section */}

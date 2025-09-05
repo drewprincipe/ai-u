@@ -141,6 +141,10 @@ const Dashboard = () => {
             <span className="bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">AI University</span>
           </div>
           <div className="flex items-center gap-4">
+            <Button variant="ghost" size="sm" onClick={() => navigate('/courses')}>
+              <BookOpen className="h-4 w-4 mr-2" />
+              Browse Courses
+            </Button>
             <Button variant="ghost" size="sm">
               <MessageCircle className="h-4 w-4 mr-2" />
               AI Tutor
@@ -260,10 +264,16 @@ const Dashboard = () => {
                   <p className="text-muted-foreground mb-6">
                     Our AI is analyzing your goals and preferences to create the perfect learning path for you.
                   </p>
-                  <Button onClick={() => navigate('/course/data-science-fundamentals')}>
-                    <Play className="h-4 w-4 mr-2" />
-                    View Demo Course
-                  </Button>
+                  <div className="flex gap-3">
+                    <Button onClick={() => navigate('/course/data-science-fundamentals')}>
+                      <Play className="h-4 w-4 mr-2" />
+                      View Demo Course
+                    </Button>
+                    <Button variant="outline" onClick={() => navigate('/courses')}>
+                      <BookOpen className="h-4 w-4 mr-2" />
+                      Browse All Courses
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
