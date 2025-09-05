@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { LessonVideoPlayer } from '@/components/LessonVideoPlayer';
+import { AITutorWidget } from '@/components/AITutorWidget';
 import { LessonVideo, LessonMeta, VideoProgress } from '@/types/lesson';
 import { getLessonVideo, getLessonMeta } from '@/services/mockLessonService';
 import { useToast } from '@/hooks/use-toast';
@@ -230,6 +231,15 @@ export default function LessonViewer() {
           </div>
         </div>
       </div>
+
+      {/* AI Tutor Widget */}
+      <AITutorWidget 
+        lessonContext={{
+          title: lessonMeta.title,
+          topic: lessonMeta.topics[0] || 'General',
+          currentTime: progress?.currentTime
+        }}
+      />
     </div>
   );
 }
