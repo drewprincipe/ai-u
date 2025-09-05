@@ -72,13 +72,13 @@ const Index = () => {
             <div className="space-y-8">
               <h1 className="text-7xl md:text-9xl font-bold leading-[0.9] tracking-tight">
                 <span className="block mb-6">
-                  <span className="text-white">Excellence in</span>
+                  <span className="text-white">The future of</span>
                 </span>
                 <span className="block bg-gradient-gemini bg-clip-text text-transparent mb-6">
                   education
                 </span>
                 <span className="block text-white text-5xl md:text-6xl font-light">
-                  reimagined
+                  is here
                 </span>
               </h1>
             </div>
