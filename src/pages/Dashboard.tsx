@@ -124,37 +124,54 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2 font-bold text-xl">
-            <Brain className="h-6 w-6 text-primary" />
-            AI University
-          </div>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm">
-              <MessageCircle className="h-4 w-4 mr-2" />
-              AI Tutor
-            </Button>
-            <Button variant="ghost" size="sm">
-              <Settings className="h-4 w-4 mr-2" />
-              Settings
-            </Button>
-            <Button variant="outline" size="sm" onClick={handleSignOut}>
-              <User className="h-4 w-4 mr-2" />
-              Sign Out
-            </Button>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-navy-900 to-slate-900">
+      {/* Background orbs */}
+      <div className="fixed inset-0">
+        <div className="absolute top-20 right-1/4 w-96 h-96 bg-gradient-gemini rounded-full blur-3xl opacity-15 animate-pulse"></div>
+        <div className="absolute bottom-32 left-1/4 w-80 h-80 bg-gradient-primary rounded-full blur-2xl opacity-10 gentle-float"></div>
+      </div>
 
-      <div className="container py-8">
+      {/* Glass overlay */}
+      <div className="fixed inset-0">
+        <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-[40px]"></div>
+      </div>
+
+      <div className="relative z-10 min-h-screen bg-transparent">
+        {/* Header */}
+        <header className="border-b border-white/[0.08] bg-white/[0.03] backdrop-blur-[40px]">
+          <div className="container flex h-16 items-center justify-between">
+            <div className="flex items-center gap-3 font-bold text-xl">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-gemini rounded-xl blur-lg opacity-40"></div>
+                <div className="relative p-2 bg-white/[0.08] backdrop-blur-[20px] rounded-xl border border-white/[0.15]">
+                  <Brain className="h-5 w-5 text-white" />
+                </div>
+              </div>
+              <span className="text-white">AI University</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white hover:bg-white/[0.08]">
+                <MessageCircle className="h-4 w-4 mr-2" />
+                AI Tutor
+              </Button>
+              <Button variant="ghost" size="sm" className="text-slate-300 hover:text-white hover:bg-white/[0.08]">
+                <Settings className="h-4 w-4 mr-2" />
+                Settings
+              </Button>
+              <Button variant="outline" size="sm" onClick={handleSignOut} className="bg-white/[0.08] border-white/[0.15] text-white hover:bg-white/[0.12]">
+                <User className="h-4 w-4 mr-2" />
+                Sign Out
+              </Button>
+            </div>
+          </div>
+        </header>
+
+        <div className="container py-8">
         {/* Welcome Section */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-3xl font-bold mb-2">
+              <h1 className="text-3xl font-bold mb-2 text-white">
                 Welcome back, {userProfile.full_name}!
               </h1>
               <div className="flex items-center gap-2">
@@ -171,32 +188,43 @@ const Dashboard = () => {
             </div>
           </div>
           
-          <Card className="bg-gradient-card">
-            <CardContent className="p-6">
-              <div className="flex items-start gap-4">
-                <Target className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold mb-2">Your Learning Goals</h3>
-                  <p className="text-muted-foreground">{userProfile.learning_goals}</p>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-2xl opacity-10"></div>
+            <Card className="relative bg-white/[0.06] backdrop-blur-[30px] border border-white/[0.10] shadow-none">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-gemini rounded-xl blur-md opacity-40"></div>
+                    <div className="relative p-2 bg-white/[0.08] rounded-xl">
+                      <Target className="h-6 w-6 text-white flex-shrink-0" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2 text-white">Your Learning Goals</h3>
+                    <p className="text-slate-300">{userProfile.learning_goals}</p>
+                  </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         {/* Stats Grid */}
         <div className="grid md:grid-cols-4 gap-6 mb-8">
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">Courses Enrolled</p>
-                  <p className="text-2xl font-bold">0</p>
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-gemini rounded-3xl blur-xl opacity-10 group-hover:opacity-15 transition-opacity"></div>
+            <Card className="relative bg-white/[0.06] backdrop-blur-[30px] border border-white/[0.10] shadow-none hover:scale-105 transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-slate-400">Courses Enrolled</p>
+                    <p className="text-2xl font-bold text-white">0</p>
+                  </div>
+                  <BookOpen className="h-8 w-8 text-white" />
                 </div>
-                <BookOpen className="h-8 w-8 text-primary" />
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
           
           <Card>
             <CardContent className="p-6">
@@ -299,6 +327,7 @@ const Dashboard = () => {
                 </Button>
               </CardContent>
             </Card>
+          </div>
           </div>
         </div>
       </div>
