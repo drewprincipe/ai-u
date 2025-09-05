@@ -7,11 +7,11 @@ const Index = () => {
       {/* Dynamic Gemini-style background orbs */}
       <div className="fixed inset-0">
         {/* Primary gradient orb */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-gemini rounded-full blur-2xl opacity-15 animate-pulse"></div>
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-gemini rounded-full blur-3xl opacity-20 animate-pulse"></div>
         
         {/* Secondary gradient orbs */}
-        <div className="absolute bottom-32 right-1/4 w-80 h-80 bg-gradient-primary rounded-full blur-xl opacity-12 gentle-float"></div>
-        <div className="absolute top-1/3 right-20 w-64 h-64 bg-gradient-accent rounded-full blur-xl opacity-8"></div>
+        <div className="absolute bottom-32 right-1/4 w-80 h-80 bg-gradient-primary rounded-full blur-2xl opacity-15 gentle-float"></div>
+        <div className="absolute top-1/3 right-20 w-64 h-64 bg-gradient-accent rounded-full blur-2xl opacity-10"></div>
         
         {/* Floating particles */}
         <div className="absolute top-1/4 left-1/3 w-4 h-4 bg-white rounded-full blur-sm opacity-40 gentle-float" style={{
@@ -34,8 +34,8 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-white/[0.03] backdrop-blur-[20px]"></div>
         
         {/* Specular highlights */}
-        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-white/[0.12] rounded-full blur-2xl"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-32 h-32 bg-white/[0.08] rounded-full blur-xl"></div>
+        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-white/[0.15] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-32 h-32 bg-white/[0.10] rounded-full blur-2xl"></div>
       </div>
 
       {/* Main Content */}
@@ -47,14 +47,14 @@ const Index = () => {
             <div className="inline-flex items-center gap-6 mb-16">
               <div className="relative group">
                 {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-gemini rounded-3xl blur-lg opacity-45 group-hover:opacity-60 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-gemini rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity"></div>
                 
                 {/* Glass container */}
                 <div className="relative p-8 bg-white/[0.08] backdrop-blur-[30px] rounded-3xl border border-white/[0.15] shadow-2xl">
                   <GraduationCap className="h-16 w-16 text-white" />
                   
                   {/* Floating accent */}
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-primary rounded-full blur-sm opacity-60"></div>
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-primary rounded-full blur-sm opacity-80"></div>
                 </div>
               </div>
               
@@ -97,8 +97,8 @@ const Index = () => {
             {/* Primary Action - Premium Glass */}
             <div className="relative group">
               {/* Glow layers */}
-              <div className="absolute inset-0 bg-gradient-primary rounded-full blur-lg opacity-30 group-hover:opacity-45 transition-all duration-500"></div>
-              <div className="absolute inset-0 bg-white/[0.12] rounded-full blur-md group-hover:bg-white/[0.18] transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-primary rounded-full blur-xl opacity-40 group-hover:opacity-60 transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-white/[0.15] rounded-full blur-lg group-hover:bg-white/[0.25] transition-all duration-300"></div>
               
               {/* Glass layers */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.25] via-white/[0.05] to-white/[0.15] rounded-full"></div>
@@ -116,7 +116,7 @@ const Index = () => {
             
             {/* Secondary Action - Subtle Glass */}
             <div className="relative group">
-              <div className="absolute inset-0 bg-white/[0.06] rounded-full blur-md group-hover:bg-white/[0.12] transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-white/[0.08] rounded-full blur-lg group-hover:bg-white/[0.15] transition-all duration-300"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.15] via-transparent to-white/[0.08] rounded-full"></div>
               <div className="absolute top-3 left-6 w-8 h-4 bg-white/[0.25] rounded-full blur-sm"></div>
               
@@ -150,12 +150,12 @@ const Index = () => {
             animationDelay: item.delay
           }}>
                 {/* Background glow */}
-                <div className={`absolute inset-0 bg-${item.gradient} rounded-3xl blur-xl opacity-8 group-hover:opacity-15 transition-all duration-500`}></div>
+                <div className={`absolute inset-0 bg-${item.gradient} rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-all duration-500`}></div>
                 
                 {/* Glass card */}
                 <div className="relative p-12 bg-white/[0.06] backdrop-blur-[30px] rounded-3xl border border-white/[0.10] hover:border-white/[0.20] transition-all duration-500 group-hover:scale-105">
                   {/* Subtle inner glow */}
-                  <div className="absolute top-4 left-6 w-16 h-8 bg-white/[0.08] rounded-full blur-md"></div>
+                  <div className="absolute top-4 left-6 w-16 h-8 bg-white/[0.10] rounded-full blur-lg"></div>
                   
                   <div className={`text-6xl font-bold bg-${item.gradient} bg-clip-text text-transparent mb-4`}>
                     {item.stat}
