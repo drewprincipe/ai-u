@@ -24,10 +24,16 @@ import {
 export default function Course() {
   const { courseId } = useParams<{ courseId: string }>();
   
+  console.log('Course component - courseId:', courseId);
+  
   const { data: course, isLoading, error } = useQuery({
     queryKey: ['course', courseId],
-    queryFn: () => getCourse(courseId!),
+    queryFn: () => {
+      console.log('Fetching course with ID:', courseId);
+      return getCourse(courseId!);
+    },
     enabled: !!courseId,
+    retry: false, // Don't retry on error for debugging
   });
 
   if (isLoading) {
@@ -47,10 +53,19 @@ export default function Course() {
   }
 
   if (error || !course) {
+    console.log('Course error:', error);
     return (
       <div className="container mx-auto px-4 py-8 text-center">
         <h1 className="text-2xl font-bold text-destructive mb-4">Course Not Found</h1>
-        <p className="text-muted-foreground">The course you're looking for doesn't exist.</p>
+        <p className="text-muted-foreground mb-4">
+          The course you're looking for doesn't exist. Course ID: {courseId}
+        </p>
+        <p className="text-sm text-muted-foreground mb-4">
+          Available course: data-science-fundamentals
+        </p>
+        <Button onClick={() => window.location.href = '/course/data-science-fundamentals'}>
+          Try Demo Course
+        </Button>
       </div>
     );
   }
