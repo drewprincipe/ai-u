@@ -38,7 +38,7 @@ const Index = () => {
                 </div>
               </div>
               <span className="text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                AI University
+                U
               </span>
             </div>
           </div>
