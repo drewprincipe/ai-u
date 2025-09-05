@@ -24,12 +24,12 @@ const Index = () => {
         {/* Navigation */}
         <nav className="p-8 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg shadow-lg"></div>
-            <span className="text-slate-900 font-semibold">AI University</span>
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 rounded-lg shadow-lg"></div>
+            <span className="text-slate-900 font-bold text-lg bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">AI University</span>
           </div>
           <Button 
             variant="ghost" 
-            className="text-slate-700 hover:text-slate-900 hover:bg-black/5"
+            className="text-slate-700 hover:text-slate-900 hover:bg-black/5 font-semibold"
             onClick={() => navigate("/auth")}
           >
             Sign in
@@ -42,19 +42,19 @@ const Index = () => {
             
             {/* Main headline */}
             <div className="space-y-8 animate-fade-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-xl rounded-full border border-blue-200/50 mb-8 shadow-lg">
-                <Sparkles className="w-4 h-4 text-blue-600" />
-                <span className="text-sm text-slate-700 font-medium">The future of education is here</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 backdrop-blur-xl rounded-full border border-blue-200/50 mb-8 shadow-lg">
+                <Sparkles className="w-4 h-4 text-purple-600" />
+                <span className="text-sm font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">The future of education is here</span>
               </div>
 
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-light leading-[0.9] tracking-tight">
-                <span className="block text-slate-900 mb-4">Learn</span>
-                <span className="block bg-gradient-gemini bg-clip-text text-transparent mb-4">anything</span>
-                <span className="block text-slate-900">with AI</span>
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight">
+                <span className="block bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent mb-4 font-black">Learn</span>
+                <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4 font-black animate-pulse">anything</span>
+                <span className="block bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-900 bg-clip-text text-transparent font-black">with AI</span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
-                Personalized education that adapts to you. World-class content, 
+              <p className="text-xl md:text-2xl text-slate-700 max-w-3xl mx-auto font-medium leading-relaxed">
+                Personalized education that adapts to you. <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">World-class content</span>, 
                 AI tutoring, and immersive learning experiences.
               </p>
             </div>
@@ -68,7 +68,7 @@ const Index = () => {
                 {/* Bright glass button */}
                 <Button 
                   size="lg"
-                  className="relative px-12 py-6 h-auto text-lg bg-white/80 backdrop-blur-xl hover:bg-white/90 border border-blue-200/50 hover:border-blue-300/60 text-slate-900 font-semibold transition-all duration-300 hover:scale-105 rounded-full shadow-xl hover:shadow-2xl"
+                  className="relative px-12 py-6 h-auto text-lg bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 hover:from-blue-600 hover:via-purple-700 hover:to-pink-600 border-0 text-white font-bold transition-all duration-300 hover:scale-105 rounded-full shadow-xl hover:shadow-2xl"
                   onClick={() => navigate("/auth")}
                 >
                   <Play className="w-5 h-5 mr-3" />
@@ -103,9 +103,9 @@ const Index = () => {
                   
                   {/* Bright glass card */}
                   <div className="relative p-8 bg-white/60 backdrop-blur-xl rounded-2xl border border-blue-100/50 hover:border-blue-200/60 transition-all duration-300 group-hover:scale-105 shadow-lg hover:shadow-xl">
-                    <feature.icon className="w-8 h-8 text-blue-600 mb-4 mx-auto" />
-                    <h3 className="text-slate-900 font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
+                    <feature.icon className="w-8 h-8 text-purple-600 mb-4 mx-auto" />
+                    <h3 className="font-bold mb-2 bg-gradient-to-r from-slate-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">{feature.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed font-medium">{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -114,18 +114,18 @@ const Index = () => {
             {/* Stats */}
             <div className="flex justify-center items-center gap-12 pt-16 animate-fade-in" style={{ animationDelay: '0.6s' }}>
               <div className="text-center">
-                <div className="text-2xl font-light text-slate-900 mb-1">50K+</div>
-                <div className="text-sm text-slate-500">Students</div>
+                <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-1">50K+</div>
+                <div className="text-sm text-slate-500 font-medium">Students</div>
               </div>
-              <div className="w-px h-8 bg-slate-300"></div>
+              <div className="w-px h-8 bg-gradient-to-b from-blue-300 to-purple-300"></div>
               <div className="text-center">
-                <div className="text-2xl font-light text-slate-900 mb-1">1000+</div>
-                <div className="text-sm text-slate-500">Courses</div>
+                <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-1">1000+</div>
+                <div className="text-sm text-slate-500 font-medium">Courses</div>
               </div>
-              <div className="w-px h-8 bg-slate-300"></div>
+              <div className="w-px h-8 bg-gradient-to-b from-purple-300 to-pink-300"></div>
               <div className="text-center">
-                <div className="text-2xl font-light text-slate-900 mb-1">95%</div>
-                <div className="text-sm text-slate-500">Success Rate</div>
+                <div className="text-2xl font-bold bg-gradient-to-r from-pink-600 to-blue-600 bg-clip-text text-transparent mb-1">95%</div>
+                <div className="text-sm text-slate-500 font-medium">Success Rate</div>
               </div>
             </div>
           </div>
