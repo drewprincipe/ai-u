@@ -39,13 +39,13 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Academic-inspired gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220 85% 60%), hsl(200 90% 65%), hsl(180 85% 60%));
-    --gradient-secondary: linear-gradient(135deg, hsl(210 100% 70%), hsl(190 95% 65%), hsl(170 90% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 85% 60%) 0%, hsl(200 90% 65%) 35%, hsl(180 85% 60%) 70%, hsl(160 80% 65%) 100%);
+    /* Academic & trustworthy gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 50%), hsl(220 90% 55%), hsl(230 85% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(200 80% 55%), hsl(210 85% 60%), hsl(220 80% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(220 90% 55%) 50%, hsl(230 85% 60%) 100%);
     --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 13% 98%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(160 85% 60%), hsl(180 90% 65%));
-    --gradient-gemini: linear-gradient(45deg, hsl(220 85% 60%), hsl(200 90% 65%), hsl(180 85% 60%), hsl(160 80% 65%));
+    --gradient-accent: linear-gradient(135deg, hsl(195 85% 55%), hsl(205 80% 60%));
+    --gradient-gemini: linear-gradient(45deg, hsl(210 100% 50%), hsl(220 90% 55%), hsl(230 85% 60%), hsl(200 80% 55%));
     
     /* Shadows with primary color */
     --shadow-elegant: 0 10px 30px -10px hsl(240 73% 59% / 0.2);
@@ -98,13 +98,13 @@ All colors MUST be HSL.
     --input: 230 15% 15%;
     --ring: 240 100% 70%;
 
-    /* Dark mode gradients - Academic style */
-    --gradient-primary: linear-gradient(135deg, hsl(220 85% 70%), hsl(200 90% 75%), hsl(180 85% 70%));
-    --gradient-secondary: linear-gradient(135deg, hsl(210 100% 75%), hsl(190 95% 70%), hsl(170 90% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 85% 70%) 0%, hsl(200 90% 75%) 35%, hsl(180 85% 70%) 70%, hsl(160 80% 75%) 100%);
+    /* Dark mode gradients - Academic & trustworthy */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 65%), hsl(220 90% 70%), hsl(230 85% 75%));
+    --gradient-secondary: linear-gradient(135deg, hsl(200 80% 70%), hsl(210 85% 75%), hsl(220 80% 80%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 65%) 0%, hsl(220 90% 70%) 50%, hsl(230 85% 75%) 100%);
     --gradient-card: linear-gradient(135deg, hsl(230 15% 9%) 0%, hsl(230 15% 12%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(160 85% 70%), hsl(180 90% 75%));
-    --gradient-gemini: linear-gradient(45deg, hsl(220 85% 70%), hsl(200 90% 75%), hsl(180 85% 70%), hsl(160 80% 75%));
+    --gradient-accent: linear-gradient(135deg, hsl(195 85% 70%), hsl(205 80% 75%));
+    --gradient-gemini: linear-gradient(45deg, hsl(210 100% 65%), hsl(220 90% 70%), hsl(230 85% 75%), hsl(200 80% 70%));
     
     /* Dark mode shadows */
     --shadow-elegant: 0 10px 30px -10px hsl(240 100% 70% / 0.3);

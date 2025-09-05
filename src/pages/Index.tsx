@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, ArrowRight, LogIn, Brain, Zap, Star } from "lucide-react";
+import { GraduationCap, ArrowRight, LogIn, BookOpen, Award, Users, Shield } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
@@ -48,7 +48,7 @@ const Index = () => {
                 
                 {/* Glass container */}
                 <div className="relative p-8 bg-white/[0.08] backdrop-blur-[30px] rounded-3xl border border-white/[0.15] shadow-2xl">
-                  <Brain className="h-16 w-16 text-white" />
+                  <GraduationCap className="h-16 w-16 text-white" />
                   
                   {/* Floating accent */}
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-primary rounded-full blur-sm opacity-80"></div>
@@ -60,8 +60,8 @@ const Index = () => {
                   AI University
                 </span>
                 <div className="flex items-center gap-2 mt-2">
-                  <Star className="h-4 w-4 text-yellow-400" />
-                  <span className="text-sm text-slate-300 font-medium">Powered by Advanced AI</span>
+                  <Award className="h-4 w-4 text-blue-400" />
+                  <span className="text-sm text-slate-300 font-medium">Accredited Education Platform</span>
                 </div>
               </div>
             </div>
@@ -72,20 +72,20 @@ const Index = () => {
             <div className="space-y-8">
               <h1 className="text-7xl md:text-9xl font-bold leading-[0.9] tracking-tight">
                 <span className="block mb-6">
-                  <span className="text-white">The future of</span>
+                  <span className="text-white">Excellence in</span>
                 </span>
                 <span className="block bg-gradient-gemini bg-clip-text text-transparent mb-6">
-                  learning
+                  education
                 </span>
                 <span className="block text-white text-5xl md:text-6xl font-light">
-                  is here
+                  reimagined
                 </span>
               </h1>
             </div>
             
             <p className="text-2xl md:text-3xl text-slate-300 max-w-5xl mx-auto leading-relaxed font-light">
-              Experience personalized AI education that adapts to your pace, 
-              style, and goals. Revolutionary technology meets intuitive design.
+              World-class education powered by AI tutoring, adaptive curricula, and personalized learning paths. 
+              Join thousands of students achieving their academic and professional goals.
             </p>
           </div>
 
@@ -109,7 +109,7 @@ const Index = () => {
                 className="relative text-xl px-20 py-10 h-auto bg-white/[0.12] backdrop-blur-[40px] hover:bg-white/[0.18] hover:scale-105 transition-all duration-500 rounded-full border border-white/[0.2] text-white font-semibold shadow-2xl group-hover:shadow-glow"
                 onClick={() => navigate("/auth")}
               >
-                <Zap className="h-6 w-6 mr-4" />
+                <BookOpen className="h-6 w-6 mr-4" />
                 Start Learning
                 <ArrowRight className="h-6 w-6 ml-4 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -135,9 +135,9 @@ const Index = () => {
           {/* Modern Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-24 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             {[
-              { stat: "1M+", label: "Global Learners", gradient: "gradient-gemini", delay: "0s" },
-              { stat: "4.9★", label: "User Rating", gradient: "gradient-primary", delay: "0.2s" },
-              { stat: "500+", label: "AI Courses", gradient: "gradient-accent", delay: "0.4s" }
+              { stat: "100K+", label: "Active Students", gradient: "gradient-gemini", delay: "0s" },
+              { stat: "96%", label: "Success Rate", gradient: "gradient-primary", delay: "0.2s" },
+              { stat: "50+", label: "Subject Areas", gradient: "gradient-accent", delay: "0.4s" }
             ].map((item, index) => (
               <div key={index} className="relative group" style={{ animationDelay: item.delay }}>
                 {/* Background glow */}
@@ -160,11 +160,11 @@ const Index = () => {
           {/* Modern Tagline */}
           <div className="pt-24 animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <div className="flex items-center justify-center gap-6 text-slate-400 font-light text-lg">
-              <span>Intelligence</span>
+              <span>Academic Excellence</span>
               <div className="w-2 h-2 bg-gradient-primary rounded-full"></div>
-              <span>Innovation</span>
+              <span>Proven Results</span>
               <div className="w-2 h-2 bg-gradient-accent rounded-full"></div>
-              <span>Imagination</span>
+              <span>Trusted Worldwide</span>
             </div>
           </div>
         </div>
