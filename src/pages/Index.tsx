@@ -1,132 +1,171 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, ArrowRight, LogIn } from "lucide-react";
+import { Sparkles, ArrowRight, LogIn, Brain, Zap, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const navigate = useNavigate();
+  
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600">
-      {/* Liquid glass background layers */}
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* Dynamic Gemini-style background orbs */}
       <div className="fixed inset-0">
-        {/* Base glass layer with heavy blur */}
-        <div className="absolute inset-0 bg-white/[0.15] backdrop-blur-[20px]"></div>
+        {/* Primary gradient orb */}
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-gemini rounded-full blur-3xl opacity-20 animate-pulse"></div>
         
-        {/* Secondary glass layer for depth */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.25] via-white/[0.05] to-white/[0.20] backdrop-blur-[12px]"></div>
+        {/* Secondary gradient orbs */}
+        <div className="absolute bottom-32 right-1/4 w-80 h-80 bg-gradient-primary rounded-full blur-2xl opacity-15 gentle-float"></div>
+        <div className="absolute top-1/3 right-20 w-64 h-64 bg-gradient-accent rounded-full blur-2xl opacity-10"></div>
         
-        {/* Depth elements with liquid glass effect */}
-        <div className="absolute top-20 left-20 w-96 h-96 bg-white/[0.12] rounded-full blur-2xl backdrop-blur-sm"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-white/[0.08] rounded-full blur-2xl backdrop-blur-sm"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-white/[0.06] rounded-full blur-3xl backdrop-blur-sm"></div>
+        {/* Floating particles */}
+        <div className="absolute top-1/4 left-1/3 w-4 h-4 bg-white rounded-full blur-sm opacity-40 gentle-float" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-gradient-primary rounded-full blur-sm opacity-30 gentle-float" style={{ animationDelay: '1.2s' }}></div>
+        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-gradient-accent rounded-full opacity-50 gentle-float" style={{ animationDelay: '2s' }}></div>
+      </div>
+
+      {/* Apple-style liquid glass overlay */}
+      <div className="fixed inset-0">
+        {/* Primary glass layer */}
+        <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-[40px]"></div>
         
-        {/* Specular highlights for liquid glass effect */}
-        <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-white/[0.3] rounded-full blur-xl"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-white/[0.25] rounded-full blur-lg"></div>
+        {/* Secondary glass layers for depth */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-white/[0.03] backdrop-blur-[20px]"></div>
         
-        {/* Final translucent overlay */}
-        <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-[8px]"></div>
+        {/* Specular highlights */}
+        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-white/[0.15] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-32 h-32 bg-white/[0.10] rounded-full blur-2xl"></div>
       </div>
 
       {/* Main Content */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-12">
-        <div className="text-center space-y-16 max-w-6xl mx-auto">
+        <div className="text-center space-y-20 max-w-7xl mx-auto">
           
-          {/* Brand */}
+          {/* Brand with enhanced design */}
           <div className="animate-fade-in">
-            <div className="inline-flex items-center gap-4 mb-12">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-lg opacity-60"></div>
-                <div className="relative p-6 bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20">
-                  <Sparkles className="h-12 w-12 text-white" />
+            <div className="inline-flex items-center gap-6 mb-16">
+              <div className="relative group">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-gemini rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity"></div>
+                
+                {/* Glass container */}
+                <div className="relative p-8 bg-white/[0.08] backdrop-blur-[30px] rounded-3xl border border-white/[0.15] shadow-2xl">
+                  <Brain className="h-16 w-16 text-white" />
+                  
+                  {/* Floating accent */}
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-primary rounded-full blur-sm opacity-80"></div>
                 </div>
               </div>
-              <span className="text-5xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
-                AI University
-              </span>
+              
+              <div className="text-left">
+                <span className="text-6xl font-bold bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-transparent">
+                  AI University
+                </span>
+                <div className="flex items-center gap-2 mt-2">
+                  <Star className="h-4 w-4 text-yellow-400" />
+                  <span className="text-sm text-slate-300 font-medium">Powered by Advanced AI</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Main Headline */}
-          <div className="space-y-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <h1 className="text-6xl md:text-8xl font-bold leading-tight tracking-tight">
-              <span className="block mb-4">
-                <span className="text-white">Learn without </span>
-                <span className="bg-gradient-to-r from-blue-100 via-white to-blue-200 bg-clip-text text-transparent">limits</span>
-              </span>
-              <span className="block text-white">
-                Powered by <span className="text-blue-100">AI</span>
-              </span>
-            </h1>
+          {/* Main Headline with modern typography */}
+          <div className="space-y-16 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="space-y-8">
+              <h1 className="text-7xl md:text-9xl font-bold leading-[0.9] tracking-tight">
+                <span className="block mb-6">
+                  <span className="text-white">The future of</span>
+                </span>
+                <span className="block bg-gradient-gemini bg-clip-text text-transparent mb-6">
+                  learning
+                </span>
+                <span className="block text-white text-5xl md:text-6xl font-light">
+                  is here
+                </span>
+              </h1>
+            </div>
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
-              Experience the future of education with personalized AI tutoring, 
-              adaptive curricula, and immersive learning that evolves with you.
+            <p className="text-2xl md:text-3xl text-slate-300 max-w-5xl mx-auto leading-relaxed font-light">
+              Experience personalized AI education that adapts to your pace, 
+              style, and goals. Revolutionary technology meets intuitive design.
             </p>
           </div>
 
-          {/* CTA Buttons with Liquid Glass Effect */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          {/* Enhanced CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            {/* Primary Action - Premium Glass */}
             <div className="relative group">
-              {/* Primary Button - Liquid Glass */}
-              <div className="absolute inset-0 bg-white/[0.25] rounded-full blur-md group-hover:bg-white/[0.35] transition-all duration-300"></div>
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.4] via-transparent to-white/[0.15] rounded-full"></div>
-              <div className="absolute top-2 left-4 w-8 h-4 bg-white/[0.6] rounded-full blur-sm"></div>
+              {/* Glow layers */}
+              <div className="absolute inset-0 bg-gradient-primary rounded-full blur-xl opacity-40 group-hover:opacity-60 transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-white/[0.15] rounded-full blur-lg group-hover:bg-white/[0.25] transition-all duration-300"></div>
+              
+              {/* Glass layers */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.25] via-white/[0.05] to-white/[0.15] rounded-full"></div>
+              
+              {/* Specular highlights */}
+              <div className="absolute top-3 left-6 w-12 h-6 bg-white/[0.4] rounded-full blur-md"></div>
+              <div className="absolute bottom-4 right-8 w-8 h-4 bg-white/[0.2] rounded-full blur-sm"></div>
+              
               <Button 
                 size="lg" 
-                className="relative text-lg px-16 py-8 h-auto bg-white/[0.2] backdrop-blur-[20px] hover:bg-white/[0.25] hover:scale-105 transition-all duration-300 rounded-full border border-white/[0.3] text-white font-semibold shadow-2xl"
+                className="relative text-xl px-20 py-10 h-auto bg-white/[0.12] backdrop-blur-[40px] hover:bg-white/[0.18] hover:scale-105 transition-all duration-500 rounded-full border border-white/[0.2] text-white font-semibold shadow-2xl group-hover:shadow-glow"
                 onClick={() => navigate("/auth")}
               >
+                <Zap className="h-6 w-6 mr-4" />
                 Start Learning
-                <ArrowRight className="h-5 w-5 ml-3" />
+                <ArrowRight className="h-6 w-6 ml-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
             
+            {/* Secondary Action - Subtle Glass */}
             <div className="relative group">
-              {/* Secondary Button - Liquid Glass */}
-              <div className="absolute inset-0 bg-white/[0.15] rounded-full blur-md group-hover:bg-white/[0.25] transition-all duration-300"></div>
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.25] via-transparent to-white/[0.1] rounded-full"></div>
-              <div className="absolute top-2 left-4 w-6 h-3 bg-white/[0.4] rounded-full blur-sm"></div>
+              <div className="absolute inset-0 bg-white/[0.08] rounded-full blur-lg group-hover:bg-white/[0.15] transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.15] via-transparent to-white/[0.08] rounded-full"></div>
+              <div className="absolute top-3 left-6 w-8 h-4 bg-white/[0.25] rounded-full blur-sm"></div>
+              
               <Button 
                 size="lg" 
-                className="relative text-lg px-16 py-8 h-auto bg-white/[0.1] backdrop-blur-[20px] hover:bg-white/[0.15] hover:scale-105 transition-all duration-300 rounded-full border border-white/[0.2] text-white font-semibold shadow-2xl"
+                className="relative text-xl px-20 py-10 h-auto bg-white/[0.05] backdrop-blur-[40px] hover:bg-white/[0.10] hover:scale-105 transition-all duration-500 rounded-full border border-white/[0.15] text-white font-semibold shadow-xl"
                 onClick={() => navigate("/auth")}
               >
-                <LogIn className="h-5 w-5 mr-3" />
+                <LogIn className="h-6 w-6 mr-4" />
                 Sign In
               </Button>
             </div>
           </div>
 
-          {/* Stats with Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-16 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
-              <div className="relative p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 hover:border-white/30 transition-all">
-                <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-3">1M+</div>
-                <div className="text-muted-foreground font-medium">Students Worldwide</div>
+          {/* Modern Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-24 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            {[
+              { stat: "1M+", label: "Global Learners", gradient: "gradient-gemini", delay: "0s" },
+              { stat: "4.9★", label: "User Rating", gradient: "gradient-primary", delay: "0.2s" },
+              { stat: "500+", label: "AI Courses", gradient: "gradient-accent", delay: "0.4s" }
+            ].map((item, index) => (
+              <div key={index} className="relative group" style={{ animationDelay: item.delay }}>
+                {/* Background glow */}
+                <div className={`absolute inset-0 bg-${item.gradient} rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-all duration-500`}></div>
+                
+                {/* Glass card */}
+                <div className="relative p-12 bg-white/[0.06] backdrop-blur-[30px] rounded-3xl border border-white/[0.10] hover:border-white/[0.20] transition-all duration-500 group-hover:scale-105">
+                  {/* Subtle inner glow */}
+                  <div className="absolute top-4 left-6 w-16 h-8 bg-white/[0.10] rounded-full blur-lg"></div>
+                  
+                  <div className={`text-6xl font-bold bg-${item.gradient} bg-clip-text text-transparent mb-4`}>
+                    {item.stat}
+                  </div>
+                  <div className="text-slate-300 font-medium text-lg">{item.label}</div>
+                </div>
               </div>
-            </div>
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-secondary rounded-3xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
-              <div className="relative p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 hover:border-white/30 transition-all">
-                <div className="text-4xl font-bold bg-gradient-secondary bg-clip-text text-transparent mb-3">4.9★</div>
-                <div className="text-muted-foreground font-medium">Average Rating</div>
-              </div>
-            </div>
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-accent rounded-3xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
-              <div className="relative p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 hover:border-white/30 transition-all">
-                <div className="text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent mb-3">500+</div>
-                <div className="text-muted-foreground font-medium">Courses Available</div>
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* Tagline */}
-          <div className="pt-16 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <p className="text-muted-foreground font-light text-lg">
-              Where intelligence meets imagination • The future of learning is here
-            </p>
+          {/* Modern Tagline */}
+          <div className="pt-24 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <div className="flex items-center justify-center gap-6 text-slate-400 font-light text-lg">
+              <span>Intelligence</span>
+              <div className="w-2 h-2 bg-gradient-primary rounded-full"></div>
+              <span>Innovation</span>
+              <div className="w-2 h-2 bg-gradient-accent rounded-full"></div>
+              <span>Imagination</span>
+            </div>
           </div>
         </div>
       </div>
