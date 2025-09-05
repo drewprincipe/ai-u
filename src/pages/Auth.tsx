@@ -133,8 +133,8 @@ const Auth = () => {
   };
 
   const handleTestOnboarding = async () => {
-    // For testing - go directly to onboarding regardless of auth status
-    navigate("/onboarding");
+    // For testing - go directly to onboarding with test parameter
+    navigate("/onboarding?test=true");
   };
 
   const handleResetOnboarding = async () => {

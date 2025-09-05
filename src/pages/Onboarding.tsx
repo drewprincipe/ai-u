@@ -54,6 +54,18 @@ const Onboarding = () => {
   useEffect(() => {
     const checkAuth = async () => {
       console.log("Checking authentication status...");
+      
+      // Check if we're in test mode via URL parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const isTestMode = urlParams.get('test') === 'true';
+      
+      if (isTestMode) {
+        console.log("Test mode enabled, skipping auth check");
+        setIsAuthenticated(true);
+        setAuthLoading(false);
+        return;
+      }
+      
       const { data: { user } } = await supabase.auth.getUser();
       console.log("Current user:", user);
       
@@ -90,6 +102,20 @@ const Onboarding = () => {
     setIsLoading(true);
     
     try {
+      // Check if we're in test mode
+      const urlParams = new URLSearchParams(window.location.search);
+      const isTestMode = urlParams.get('test') === 'true';
+      
+      if (isTestMode) {
+        console.log("Test mode - simulating completion");
+        toast({
+          title: "Test Mode: Onboarding Complete! 🎉", 
+          description: "This was a test run. Your data wasn't saved.",
+        });
+        navigate("/dashboard");
+        return;
+      }
+      
       const { data: { user } } = await supabase.auth.getUser();
       console.log("User for onboarding:", user);
       
