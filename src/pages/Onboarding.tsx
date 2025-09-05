@@ -27,11 +27,7 @@ interface OnboardingData {
   fullName: string;
   age: string;
   userType: UserType;
-  currentSituation: string;
-  learningGoals: string;
-  timeCommitment: string;
   preferredLearningStyle: string;
-  subjects: string[];
   timeline: string;
 }
 
@@ -42,17 +38,13 @@ const Onboarding = () => {
   const [authLoading, setAuthLoading] = useState(true);
   const { toast } = useToast();
   const navigate = useNavigate();
-  const totalSteps = 5;
+  const totalSteps = 4;
 
   const [data, setData] = useState<OnboardingData>({
     fullName: "",
     age: "",
     userType: "lifelong-learner",
-    currentSituation: "",
-    learningGoals: "",
-    timeCommitment: "",
     preferredLearningStyle: "",
-    subjects: [],
     timeline: ""
   });
 
@@ -115,11 +107,11 @@ const Onboarding = () => {
         full_name: data.fullName,
         age: parseInt(data.age),
         user_type: data.userType,
-        current_situation: data.currentSituation,
-        learning_goals: data.learningGoals,
-        time_commitment: data.timeCommitment,
+        current_situation: "To be determined by AI",
+        learning_goals: "To be determined by AI", 
+        time_commitment: "To be determined by AI",
         preferred_learning_style: data.preferredLearningStyle,
-        subjects: data.subjects,
+        subjects: [],
         timeline: data.timeline,
         onboarding_completed: true,
       };
@@ -264,72 +256,11 @@ const Onboarding = () => {
           <div className="space-y-6">
             <div className="text-center space-y-2">
               <BookOpen className="h-12 w-12 text-primary mx-auto" />
-              <h2 className="text-2xl font-bold">What are your learning goals?</h2>
-              <p className="text-muted-foreground">Tell us what you want to achieve</p>
-            </div>
-            
-            <div className="space-y-4">
-              <div>
-                <Label htmlFor="currentSituation">Current Situation</Label>
-                <Textarea
-                  id="currentSituation"
-                  value={data.currentSituation}
-                  onChange={(e) => updateData("currentSituation", e.target.value)}
-                  placeholder="Describe your current education/work situation..."
-                  rows={3}
-                />
-              </div>
-              
-              <div>
-                <Label htmlFor="learningGoals">Learning Goals</Label>
-                <Textarea
-                  id="learningGoals"
-                  value={data.learningGoals}
-                  onChange={(e) => updateData("learningGoals", e.target.value)}
-                  placeholder="What do you want to learn and why?"
-                  rows={3}
-                />
-              </div>
-            </div>
-          </div>
-        );
-
-      case 4:
-        return (
-          <div className="space-y-6">
-            <div className="text-center space-y-2">
-              <Clock className="h-12 w-12 text-primary mx-auto" />
               <h2 className="text-2xl font-bold">How do you prefer to learn?</h2>
               <p className="text-muted-foreground">Help us customize your experience</p>
             </div>
             
             <div className="space-y-4">
-              <div>
-                <Label>Time Commitment (per week)</Label>
-                <RadioGroup
-                  value={data.timeCommitment}
-                  onValueChange={(value) => updateData("timeCommitment", value)}
-                  className="mt-2"
-                >
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="1-3 hours" id="time1" />
-                    <Label htmlFor="time1">1-3 hours</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="4-7 hours" id="time2" />
-                    <Label htmlFor="time2">4-7 hours</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="8-15 hours" id="time3" />
-                    <Label htmlFor="time3">8-15 hours</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="15+ hours" id="time4" />
-                    <Label htmlFor="time4">15+ hours</Label>
-                  </div>
-                </RadioGroup>
-              </div>
-
               <div>
                 <Label>Preferred Learning Style</Label>
                 <RadioGroup
@@ -359,7 +290,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 5:
+      case 4:
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
@@ -421,10 +352,8 @@ const Onboarding = () => {
       case 2:
         return data.userType;
       case 3:
-        return data.currentSituation.trim() && data.learningGoals.trim();
+        return data.preferredLearningStyle;
       case 4:
-        return data.timeCommitment && data.preferredLearningStyle;
-      case 5:
         return data.timeline;
       default:
         return true;
