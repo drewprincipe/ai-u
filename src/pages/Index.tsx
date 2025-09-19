@@ -1,34 +1,71 @@
 import { Button } from "@/components/ui/button";
-import { Play, Sparkles, ChevronRight, Brain, Zap, Globe } from "lucide-react";
+import { Play, BookOpen, ChevronRight, Brain, Zap, Globe, PencilIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { DoodleArrow, DoodleUnderline, BookDoodle, LightbulbDoodle, PencilDoodle } from "@/components/DoodleElements";
+import { RuledUnderline, NotebookTab, AcademicBracket, HighlightBox } from "@/components/NotebookElements";
+
 const Index = () => {
   const navigate = useNavigate();
-  return <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-purple-50/30">
-      {/* Bright Gemini-inspired floating orbs */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/5 w-64 h-64 bg-gradient-gemini rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-primary rounded-full blur-3xl opacity-15 gentle-float"></div>
-        <div className="absolute top-2/3 left-1/2 w-48 h-48 bg-gradient-accent rounded-full blur-2xl opacity-12"></div>
-        <div className="absolute top-1/2 right-1/6 w-32 h-32 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-2xl opacity-10"></div>
+
+  return (
+    <div className="min-h-screen relative overflow-hidden bg-background">
+      {/* Chalkboard texture overlay */}
+      <div className="fixed inset-0 pointer-events-none opacity-5">
+        <div 
+          className="w-full h-full"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.1) 1px, transparent 1px),
+              radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.1) 1px, transparent 1px),
+              radial-gradient(circle at 40% 80%, hsl(var(--primary) / 0.05) 2px, transparent 2px)
+            `,
+            backgroundSize: '60px 60px, 80px 80px, 120px 120px'
+          }}
+        />
       </div>
 
-      {/* Bright liquid glass overlay */}
-      <div className="fixed inset-0 bg-white/30 backdrop-blur-[100px] pointer-events-none"></div>
+      {/* Hand-drawn floating elements */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-20 left-16">
+          <BookDoodle className="w-16 h-16 text-accent/30 animate-gentle-float" />
+        </div>
+        <div className="absolute top-1/3 right-20">
+          <LightbulbDoodle className="w-12 h-12 text-primary/40" />
+        </div>
+        <div className="absolute bottom-40 left-1/4">
+          <PencilDoodle className="w-10 h-10 text-accent/35 rotate-12" />
+        </div>
+        <div className="absolute top-1/2 left-8">
+          <DoodleArrow className="w-8 h-8 text-primary/25 rotate-45" />
+        </div>
+      </div>
 
       {/* Main content */}
       <div className="relative z-10 min-h-screen flex flex-col">
-        
         {/* Navigation */}
         <nav className="p-8 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 rounded-lg shadow-lg"></div>
-            <span className="text-slate-900 font-bold text-lg bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">AI University</span>
+            <div className="relative">
+              <div className="w-8 h-8 bg-gradient-primary rounded-sm shadow-card"></div>
+              <div className="absolute -top-1 -right-1 w-3 h-3 border-2 border-primary rounded-full"></div>
+            </div>
+            <span className="text-foreground font-chalk text-xl font-bold tracking-wide">
+              AI University
+              <RuledUnderline className="text-primary" />
+            </span>
           </div>
           <div className="flex items-center gap-4">
-            <Button variant="ghost" className="text-slate-700 hover:text-slate-900 hover:bg-black/5 font-semibold" onClick={() => navigate("/courses")}>
+            <Button 
+              variant="ghost" 
+              className="text-muted-foreground hover:text-foreground font-chalk tracking-wide" 
+              onClick={() => navigate("/courses")}
+            >
               Browse Courses
             </Button>
-            <Button variant="ghost" className="text-slate-700 hover:text-slate-900 hover:bg-black/5 font-semibold" onClick={() => navigate("/auth")}>
+            <Button 
+              variant="chalk" 
+              onClick={() => navigate("/auth")}
+            >
               Sign in
             </Button>
           </div>
@@ -38,97 +75,141 @@ const Index = () => {
         <div className="flex-1 flex items-center justify-center px-8">
           <div className="max-w-6xl mx-auto text-center space-y-16">
             
-            {/* Main headline */}
+            {/* Main headline with chalk styling */}
             <div className="space-y-8 animate-fade-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 backdrop-blur-xl rounded-full border border-blue-200/50 mb-8 shadow-lg">
-                <Sparkles className="w-4 h-4 text-purple-600" />
-                <span className="text-sm font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">The future of education is here</span>
+              <div className="relative inline-block">
+                <NotebookTab text="Featured" className="mb-6" />
+                <div className="bg-card/50 backdrop-blur-sm border-2 border-primary/20 rounded-lg p-4 shadow-card">
+                  <div className="flex items-center justify-center gap-2">
+                    <BookOpen className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-chalk font-bold text-primary tracking-wider">
+                      The future of education is here
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight">
-                <span className="block bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent mb-4 font-black">Excellence in</span>
-                <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4 font-black animate-pulse">education</span>
-                <span className="block bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-900 bg-clip-text text-transparent font-black">reimagined.</span>
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight font-chalk">
+                <span className="block text-foreground mb-4 relative">
+                  Excellence in
+                  <DoodleUnderline className="absolute -bottom-2 left-0 w-full text-primary/60" />
+                </span>
+                <span className="block text-primary mb-4 relative">
+                  education
+                  <div className="absolute -top-4 -right-8">
+                    <DoodleArrow className="w-12 h-12 text-accent/40 rotate-12" />
+                  </div>
+                </span>
+                <span className="block text-foreground relative">
+                  reimagined.
+                  <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
+                    <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent rounded-full"></div>
+                  </div>
+                </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-slate-700 max-w-3xl mx-auto font-medium leading-relaxed">
-                Personalized education that adapts to you. <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">World-class content</span>, 
-                AI tutoring, and immersive learning experiences.
-              </p>
+              <AcademicBracket className="max-w-4xl mx-auto">
+                <HighlightBox className="bg-card/30 border-l-4 border-accent">
+                  <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto font-academic leading-relaxed">
+                    Personalized education that adapts to you. 
+                    <span className="text-primary font-semibold"> World-class content</span>, 
+                    AI tutoring, and immersive learning experiences.
+                  </p>
+                </HighlightBox>
+              </AcademicBracket>
             </div>
 
-            {/* CTA */}
-            <div className="animate-fade-in" style={{
-            animationDelay: '0.2s'
-          }}>
-              <div className="relative inline-block group">
-                {/* Bright glow effect */}
-                <div className="absolute inset-0 bg-gradient-primary rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-                
-                {/* Bright glass button */}
-                <Button size="lg" className="relative px-12 py-6 h-auto text-lg bg-white/80 backdrop-blur-xl hover:bg-white/90 border border-blue-200/50 hover:border-blue-300/60 text-slate-900 font-semibold transition-all duration-300 hover:scale-105 rounded-full shadow-xl hover:shadow-2xl mr-4" onClick={() => navigate("/auth")}>
+            {/* CTA Buttons */}
+            <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button 
+                  size="lg" 
+                  variant="hero"
+                  className="px-12 py-6 h-auto text-lg rounded-sm relative"
+                  onClick={() => navigate("/auth")}
+                >
                   <Play className="w-5 h-5 mr-3" />
                   Start learning for free
-                  <ChevronRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-5 h-5 ml-3" />
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                    <DoodleArrow className="w-6 h-6 text-primary/40 rotate-90" />
+                  </div>
                 </Button>
                 
-                <Button size="lg" variant="outline" className="relative px-8 py-6 h-auto text-lg bg-white/60 backdrop-blur-xl hover:bg-white/80 border border-blue-200/50 hover:border-blue-300/60 text-slate-900 font-semibold transition-all duration-300 hover:scale-105 rounded-full shadow-lg" onClick={() => navigate("/course/data-science-fundamentals")}>
+                <Button 
+                  size="lg" 
+                  variant="hero-outline" 
+                  className="px-8 py-6 h-auto text-lg rounded-sm"
+                  onClick={() => navigate("/course/data-science-fundamentals")}
+                >
+                  <PencilIcon className="w-5 h-5 mr-2" />
                   View Demo Course
                 </Button>
               </div>
             </div>
 
-            {/* Features grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-20 animate-fade-in" style={{
-            animationDelay: '0.4s'
-          }}>
-              {[{
-              icon: Brain,
-              title: "AI-Powered",
-              description: "Personal AI tutor that adapts to your learning style"
-            }, {
-              icon: Zap,
-              title: "Instant Feedback",
-              description: "Get immediate guidance and corrections as you learn"
-            }, {
-              icon: Globe,
-              title: "Global Access",
-              description: "Learn from anywhere, at your own pace and schedule"
-            }].map((feature, index) => <div key={index} className="relative group">
-                  {/* Bright subtle glow */}
-                  <div className="absolute inset-0 bg-gradient-primary rounded-2xl blur-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-                  
-                  {/* Bright glass card */}
-                  <div className="relative p-8 bg-white/60 backdrop-blur-xl rounded-2xl border border-blue-100/50 hover:border-blue-200/60 transition-all duration-300 group-hover:scale-105 shadow-lg hover:shadow-xl">
-                    <feature.icon className="w-8 h-8 text-purple-600 mb-4 mx-auto" />
-                    <h3 className="font-bold mb-2 bg-gradient-to-r from-slate-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">{feature.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed font-medium">{feature.description}</p>
+            {/* Features grid with chalkboard aesthetic */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-20 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              {[
+                {
+                  icon: Brain,
+                  title: "AI-Powered",
+                  description: "Personal AI tutor that adapts to your learning style",
+                  doodle: <LightbulbDoodle className="w-6 h-6 text-primary/30 absolute -top-2 -right-2" />
+                },
+                {
+                  icon: Zap,
+                  title: "Instant Feedback", 
+                  description: "Get immediate guidance and corrections as you learn",
+                  doodle: <DoodleArrow className="w-6 h-6 text-accent/30 absolute -top-2 -right-2 rotate-45" />
+                },
+                {
+                  icon: Globe,
+                  title: "Global Access",
+                  description: "Learn from anywhere, at your own pace and schedule",
+                  doodle: <BookDoodle className="w-6 h-6 text-primary/30 absolute -top-2 -right-2" />
+                }
+              ].map((feature, index) => (
+                <div key={index} className="relative group">
+                  <div className="relative p-8 bg-card/40 backdrop-blur-sm border-2 border-border/40 rounded-sm transition-all duration-300 group-hover:bg-card/60 group-hover:border-primary/30 shadow-card">
+                    {feature.doodle}
+                    <feature.icon className="w-8 h-8 text-primary mb-4 mx-auto" />
+                    <h3 className="font-chalk font-bold mb-3 text-foreground relative">
+                      {feature.title}
+                      <DoodleUnderline className="absolute -bottom-1 left-0 w-full text-accent/40" />
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed font-academic">{feature.description}</p>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
 
-            {/* Stats */}
-            <div className="flex justify-center items-center gap-12 pt-16 animate-fade-in" style={{
-            animationDelay: '0.6s'
-          }}>
-              <div className="text-center">
-                <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-1">50K+</div>
-                <div className="text-sm text-slate-500 font-medium">Students</div>
-              </div>
-              <div className="w-px h-8 bg-gradient-to-b from-blue-300 to-purple-300"></div>
-              <div className="text-center">
-                <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-1">1000+</div>
-                <div className="text-sm text-slate-500 font-medium">Courses</div>
-              </div>
-              <div className="w-px h-8 bg-gradient-to-b from-purple-300 to-pink-300"></div>
-              <div className="text-center">
-                <div className="text-2xl font-bold bg-gradient-to-r from-pink-600 to-blue-600 bg-clip-text text-transparent mb-1">95%</div>
-                <div className="text-sm text-slate-500 font-medium">Success Rate</div>
-              </div>
+            {/* Stats with chalkboard styling */}
+            <div className="flex justify-center items-center gap-12 pt-16 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              {[
+                { number: "50K+", label: "Students" },
+                { number: "1000+", label: "Courses" },
+                { number: "95%", label: "Success Rate" }
+              ].map((stat, index) => (
+                <div key={index} className="text-center relative">
+                  <div className="relative">
+                    <div className="text-3xl font-bold font-chalk text-primary mb-1 relative">
+                      {stat.number}
+                      {index === 1 && <DoodleArrow className="w-4 h-4 text-accent/40 absolute -top-1 -right-4 rotate-12" />}
+                    </div>
+                    <div className="text-sm text-muted-foreground font-academic tracking-wide">{stat.label}</div>
+                  </div>
+                  {index < 2 && (
+                    <div className="absolute -right-6 top-1/2 transform -translate-y-1/2 w-px h-8 bg-border/60"></div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

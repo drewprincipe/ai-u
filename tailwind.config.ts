@@ -19,7 +19,10 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				sans: ["Inter", "system-ui", "sans-serif"],
+				mono: ["Fira Code", "monospace"],
+				chalk: ["Kalam", "Comic Neue", "cursive"],
+				academic: ["Crimson Text", "serif"],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
