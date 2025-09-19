@@ -9,34 +9,30 @@ const Index = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-background">
-      {/* Chalkboard texture overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-5">
+      {/* Subtle texture overlay */}
+      <div className="fixed inset-0 pointer-events-none opacity-3">
         <div 
           className="w-full h-full"
           style={{
             backgroundImage: `
-              radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.1) 1px, transparent 1px),
-              radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.1) 1px, transparent 1px),
-              radial-gradient(circle at 40% 80%, hsl(var(--primary) / 0.05) 2px, transparent 2px)
+              radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.04) 1px, transparent 1px),
+              radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.03) 1px, transparent 1px)
             `,
-            backgroundSize: '60px 60px, 80px 80px, 120px 120px'
+            backgroundSize: '80px 80px, 100px 100px'
           }}
         />
       </div>
 
-      {/* Hand-drawn floating elements */}
+      {/* Gentle floating elements */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-20 left-16">
-          <BookDoodle className="w-16 h-16 text-accent/30 animate-gentle-float" />
+        <div className="absolute top-32 left-20">
+          <BookDoodle className="w-12 h-12 text-accent/20 animate-gentle-float" />
         </div>
-        <div className="absolute top-1/3 right-20">
-          <LightbulbDoodle className="w-12 h-12 text-primary/40" />
+        <div className="absolute top-1/3 right-24">
+          <LightbulbDoodle className="w-10 h-10 text-primary/25" />
         </div>
-        <div className="absolute bottom-40 left-1/4">
-          <PencilDoodle className="w-10 h-10 text-accent/35 rotate-12" />
-        </div>
-        <div className="absolute top-1/2 left-8">
-          <DoodleArrow className="w-8 h-8 text-primary/25 rotate-45" />
+        <div className="absolute bottom-48 left-1/4">
+          <PencilDoodle className="w-8 h-8 text-accent/20 rotate-12" />
         </div>
       </div>
 
@@ -49,9 +45,9 @@ const Index = () => {
               <div className="w-8 h-8 bg-gradient-primary rounded-sm shadow-card"></div>
               <div className="absolute -top-1 -right-1 w-3 h-3 border-2 border-primary rounded-full"></div>
             </div>
-            <span className="text-foreground font-chalk text-xl font-bold tracking-wide">
+            <span className="text-foreground font-chalk text-lg font-semibold tracking-wide">
               AI University
-              <RuledUnderline className="text-primary" />
+              <RuledUnderline className="text-primary/40" />
             </span>
           </div>
           <div className="flex items-center gap-4">
@@ -89,30 +85,30 @@ const Index = () => {
                 </div>
               </div>
 
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight font-chalk">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold leading-[0.9] tracking-tight font-chalk">
                 <span className="block text-foreground mb-4 relative">
                   Excellence in
-                  <DoodleUnderline className="absolute -bottom-2 left-0 w-full text-primary/60" />
+                  <DoodleUnderline className="absolute -bottom-2 left-0 w-full text-primary/40" />
                 </span>
                 <span className="block text-primary mb-4 relative">
                   education
                   <div className="absolute -top-4 -right-8">
-                    <DoodleArrow className="w-12 h-12 text-accent/40 rotate-12" />
+                    <DoodleArrow className="w-8 h-8 text-accent/30 rotate-12" />
                   </div>
                 </span>
                 <span className="block text-foreground relative">
                   reimagined.
-                  <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-                    <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent rounded-full"></div>
+                  <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
+                    <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-primary/40 to-transparent rounded-full"></div>
                   </div>
                 </span>
               </h1>
 
               <AcademicBracket className="max-w-4xl mx-auto">
-                <HighlightBox className="bg-card/30 border-l-4 border-accent">
-                  <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto font-academic leading-relaxed">
+                <HighlightBox className="bg-card/20 border-l-2 border-accent/60">
+                  <p className="text-lg md:text-xl text-foreground/90 max-w-3xl mx-auto font-academic leading-relaxed">
                     Personalized education that adapts to you. 
-                    <span className="text-primary font-semibold"> World-class content</span>, 
+                    <span className="text-primary font-medium"> World-class content</span>, 
                     AI tutoring, and immersive learning experiences.
                   </p>
                 </HighlightBox>
@@ -171,12 +167,12 @@ const Index = () => {
                 }
               ].map((feature, index) => (
                 <div key={index} className="relative group">
-                  <div className="relative p-8 bg-card/40 backdrop-blur-sm border-2 border-border/40 rounded-sm transition-all duration-300 group-hover:bg-card/60 group-hover:border-primary/30 shadow-card">
+                  <div className="relative p-6 bg-card/30 backdrop-blur-sm border border-border/30 rounded-md transition-all duration-300 group-hover:bg-card/50 group-hover:border-primary/20 shadow-card">
                     {feature.doodle}
-                    <feature.icon className="w-8 h-8 text-primary mb-4 mx-auto" />
-                    <h3 className="font-chalk font-bold mb-3 text-foreground relative">
+                    <feature.icon className="w-7 h-7 text-primary mb-3 mx-auto" />
+                    <h3 className="font-chalk font-semibold mb-2 text-foreground relative text-base">
                       {feature.title}
-                      <DoodleUnderline className="absolute -bottom-1 left-0 w-full text-accent/40" />
+                      <DoodleUnderline className="absolute -bottom-1 left-0 w-full text-accent/30" />
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed font-academic">{feature.description}</p>
                   </div>

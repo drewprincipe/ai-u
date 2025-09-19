@@ -8,50 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Chalkboard Educational Theme - Dark base */
-    --background: 160 15% 8%;
-    --foreground: 45 100% 85%;
+    /* Friendly Educational Theme - Light and approachable */
+    --background: 45 40% 96%;
+    --foreground: 160 20% 25%;
 
-    --card: 160 12% 12%;
-    --card-foreground: 45 95% 82%;
+    --card: 45 30% 98%;
+    --card-foreground: 160 25% 20%;
 
-    --popover: 160 18% 10%;
-    --popover-foreground: 45 90% 85%;
+    --popover: 45 35% 97%;
+    --popover-foreground: 160 20% 25%;
 
-    --primary: 45 100% 75%;
-    --primary-foreground: 160 20% 8%;
-    --primary-glow: 45 100% 80%;
+    --primary: 160 30% 35%;
+    --primary-foreground: 45 50% 95%;
+    --primary-glow: 160 25% 45%;
 
-    --secondary: 200 25% 25%;
-    --secondary-foreground: 45 85% 80%;
+    --secondary: 200 15% 85%;
+    --secondary-foreground: 160 25% 20%;
 
-    --muted: 160 8% 18%;
-    --muted-foreground: 45 60% 65%;
+    --muted: 45 20% 90%;
+    --muted-foreground: 160 15% 45%;
 
-    --accent: 25 75% 65%;
-    --accent-foreground: 160 15% 8%;
+    --accent: 25 40% 60%;
+    --accent-foreground: 45 50% 95%;
 
-    --destructive: 0 75% 65%;
-    --destructive-foreground: 45 90% 85%;
+    --destructive: 0 50% 60%;
+    --destructive-foreground: 45 50% 95%;
 
-    --border: 160 15% 25%;
-    --input: 160 12% 20%;
-    --ring: 45 100% 75%;
+    --border: 160 10% 80%;
+    --input: 45 25% 92%;
+    --ring: 160 30% 35%;
 
-    --radius: 0.25rem;
+    --radius: 0.5rem;
 
-    /* Chalk-inspired gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(45 90% 70%));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(200 30% 30%));
-    --gradient-hero: radial-gradient(ellipse at center, hsl(var(--background)), hsl(160 20% 6%));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(160 15% 14%));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(25 60% 60%));
-    --gradient-chalk: linear-gradient(180deg, hsl(45 85% 78%) 0%, hsl(45 75% 72%) 100%);
+    /* Soft educational gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(160 25% 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(200 20% 80%));
+    --gradient-hero: radial-gradient(ellipse at center, hsl(var(--background)), hsl(45 35% 94%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(45 25% 96%));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(25 35% 65%));
+    --gradient-chalk: linear-gradient(180deg, hsl(45 50% 95%) 0%, hsl(45 40% 92%) 100%);
 
-    /* Chalk shadows and textures */
-    --shadow-elegant: 0 8px 25px -8px hsl(var(--background) / 0.6);
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
-    --shadow-card: 0 6px 20px -4px hsl(var(--background) / 0.4);
+    /* Gentle shadows */
+    --shadow-elegant: 0 4px 15px -3px hsl(var(--foreground) / 0.1);
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 2px 8px -1px hsl(var(--foreground) / 0.08);
     
     /* Animation */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -70,35 +70,35 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Light mode - cream paper aesthetic */
-    --background: 45 25% 92%;
-    --foreground: 160 30% 15%;
+    /* Dark mode - warm and cozy */
+    --background: 160 25% 8%;
+    --foreground: 45 60% 85%;
 
-    --card: 45 20% 88%;
-    --card-foreground: 160 25% 18%;
+    --card: 160 20% 12%;
+    --card-foreground: 45 55% 82%;
 
-    --popover: 45 30% 90%;
-    --popover-foreground: 160 30% 15%;
+    --popover: 160 22% 10%;
+    --popover-foreground: 45 60% 85%;
 
-    --primary: 160 40% 25%;
-    --primary-foreground: 45 85% 90%;
-    --primary-glow: 160 40% 30%;
+    --primary: 45 70% 65%;
+    --primary-foreground: 160 25% 8%;
+    --primary-glow: 45 65% 70%;
 
-    --secondary: 200 20% 70%;
-    --secondary-foreground: 160 30% 15%;
+    --secondary: 200 20% 20%;
+    --secondary-foreground: 45 55% 80%;
 
-    --muted: 45 15% 80%;
-    --muted-foreground: 160 20% 35%;
+    --muted: 160 15% 18%;
+    --muted-foreground: 45 40% 65%;
 
-    --accent: 25 60% 55%;
-    --accent-foreground: 45 90% 90%;
+    --accent: 25 50% 60%;
+    --accent-foreground: 160 25% 8%;
 
-    --destructive: 0 60% 55%;
-    --destructive-foreground: 45 85% 90%;
+    --destructive: 0 55% 60%;
+    --destructive-foreground: 45 55% 85%;
 
-    --border: 45 10% 75%;
-    --input: 45 15% 82%;
-    --ring: 160 40% 25%;
+    --border: 160 12% 22%;
+    --input: 160 18% 16%;
+    --ring: 45 70% 65%;
 
     /* Dark mode gradients - Academic & trustworthy */
     --gradient-primary: linear-gradient(135deg, hsl(210 100% 65%), hsl(220 90% 70%), hsl(230 85% 75%));
@@ -130,47 +130,22 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-sans;
     background-image: 
-      radial-gradient(circle at 25% 25%, hsl(var(--foreground) / 0.03) 1px, transparent 1px),
-      radial-gradient(circle at 75% 75%, hsl(var(--foreground) / 0.02) 1px, transparent 1px);
-    background-size: 40px 40px, 60px 60px;
-    position: relative;
-  }
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 79px,
-        hsl(var(--foreground) / 0.02) 80px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 79px,
-        hsl(var(--foreground) / 0.02) 80px
-      );
-    pointer-events: none;
-    z-index: -1;
+      radial-gradient(circle at 25% 25%, hsl(var(--foreground) / 0.02) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, hsl(var(--primary) / 0.015) 1px, transparent 1px);
+    background-size: 60px 60px, 80px 80px;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
-    position: relative;
+    @apply font-semibold;
   }
   h1::after, h2::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: -1px;
     left: 0;
     width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.6), transparent);
-    border-radius: 1px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent);
+    border-radius: 0.5px;
   }
 
   .line-clamp-2 {
